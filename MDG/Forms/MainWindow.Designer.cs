@@ -113,6 +113,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
-        private System.Windows.Forms.SplitContainer SplitContainerMain;
+        public System.Windows.Forms.SplitContainer SplitContainerMain;
     }
 }

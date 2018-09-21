@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MDG.Objects;
 using MDG.Forms.Common;
+using System.IO;
 
 namespace MDG.Forms.New
 {
@@ -94,12 +95,12 @@ namespace MDG.Forms.New
             Debug.WriteLine("Fields valid. Moving on.");
 
             //Complete a CustomerClass object for storage.
-            List<string> EmptyArray = new List<string> { };
+            List<Job> EmptyJob = new List<Job> { };
             List<Representative> EmptyList = new List<Representative> { };
             
             CustomerClass Customer = new CustomerClass {
                 Name = txtName.Text,
-                Jobs = EmptyArray
+                Jobs = EmptyJob
             };
             if (rbCompany.Checked)
             {
@@ -118,9 +119,12 @@ namespace MDG.Forms.New
             Customer.Address.State = txtState.Text;
             Customer.Address.Zip = txtZip.Text;
 
+            Customer.Path = Properties.Settings.Default.WorkDir + PublicVariables.Seperator + Customer.Name;
+
             bool Success = Functions.AddCustomer(Customer);    
             if (Success)
             {
+                Functions.PopulateCustomers();
                 foreach (Control x in this.Controls)
                 {
                     if (x is TextBox)
@@ -129,8 +133,6 @@ namespace MDG.Forms.New
                     }
                 }
                 lbReps.Items.Clear();
-                rbCompany.Checked = false;
-                rbIndividual.Checked = false;
             } 
         }
         
@@ -144,6 +146,25 @@ namespace MDG.Forms.New
                 Email = Values[2]
             };
             Representatives.Add(Rep);
+        }
+
+        private void CreateCustomer_Load(object sender, EventArgs e)
+        {
+            if (Properties.Settings.Default.WorkDir == "")
+            {
+                DialogResult Result = MessageBox.Show("You have not set the work directory yet. Would you like to set the directory now?", "WORK DIRECTORY NOT SET", MessageBoxButtons.YesNo);
+                if (Result.Equals(DialogResult.Yes))
+                {
+                    Properties.Settings.Default.WorkDir = Microsoft.VisualBasic.Interaction.InputBox("Please enter the directory you want.", "Work Directroy", "");
+                    Properties.Settings.Default.Save();
+                }
+                else
+                {
+                    MessageBox.Show("ERROR:\nNo work directory was found. Exiting.");
+                    this.Close();
+                    return;
+                }
+            }
         }
     }
 }

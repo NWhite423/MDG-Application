@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MDG.Forms.New;
 using MDG.UserControls;
+using MDG.Objects;
 using System.Xml.Linq;
 using System.IO;
 using System.Reflection;
@@ -35,38 +36,60 @@ namespace MDG.Forms
                    , @"Misc\XMLCustomers.xml");
             XDocument Doc = XDocument.Load(fileName);
             var Customers = Doc.Descendants("Customer");
-
-            int i = 0;
+            
             foreach (XElement Customer in Customers)
             {
-                CustomerInformation Card = new CustomerInformation();
-                int y = SplitContainerMain.Panel1.Width;
-                Card.Title = Customer.Element("Name").Value;
-                Card.Category = Customer.Element("Category").Value;
-                string Address = "";
-                string[] AddressParts = Customer.Element("Address").Value.Split(',');
-                if (AddressParts[1] == "")
-                {
-                    Address += AddressParts[0] + "\n" + AddressParts[2] + ", " + AddressParts[3] + " " + AddressParts[4];
-                } else
-                {
-                    Address += AddressParts[0] + "\n" + AddressParts[1] + "\n" + AddressParts[2] + ", " + AddressParts[3] + " " + AddressParts[4];
-                }
-                Card.Address = Address;
-                Card.Location = new Point(0, 191 * i);
-                Card.Width = y - 20;
-                SplitContainerMain.Panel1.Controls.Add(Card);
+                //Basic values and array setup
+                CustomerClass Class = new CustomerClass();
+                Class.Name = Customer.Element("Name").Value;
+                Class.Category = Customer.Element("Category").Value;
+                Class.Path = Customer.Element("Path").Value;
 
-                i++;
+                string[] AddressArray = Customer.Element("Address").Value.Split(',');
+                List<Representative> RepArray = new List<Representative> { };
+                List<Job> JobArray = new List<Job> { };
+
+                //Address
+                Class.Address.AddressLine1 = AddressArray[0];
+                Class.Address.AddressLine2 = AddressArray[1];
+                Class.Address.City = AddressArray[2];
+                Class.Address.State = AddressArray[3];
+                Class.Address.Zip = AddressArray[4];
+
+                //Jobs
+                //TODO: Replace with actual grabbing of value.
+                Class.Jobs = JobArray;
+
+                //Representatives
+                foreach (XElement Rep in Customers.Elements("Representatives").Elements())
+                {
+                    Representative RepClass = new Representative();
+                    RepClass.Name = Rep.Element("Name").Value;
+                    RepClass.Phone = Rep.Element("Phone").Value;
+                    RepClass.Email = Rep.Element("Email").Value;
+                    RepArray.Add(RepClass);
+                }
+                Class.Representatives = RepArray;
+
+                //Add Customer to CustomerList
+                PublicVariables.CustomerList.Add(Class);
             }
+            PublicVariables.Container = SplitContainerMain;
+            Functions.PopulateCustomers();
         }
 
         private void SplitContainerMain_Panel1_Resize(object sender, EventArgs e)
         {
-            foreach (CustomerInformation Card in SplitContainerMain.Panel1.Controls)
+            foreach (CustomerInformation Item in SplitContainerMain.Panel1.Controls)
             {
-                Card.Width = SplitContainerMain.Panel1.Width - 20;
+                
+                Item.Width = SplitContainerMain.Panel1.Width-15;
             }
+        }
+
+        private void cmdRefresh_Click(object sender, EventArgs e)
+        {
+            Functions.PopulateCustomers();
         }
     }
 

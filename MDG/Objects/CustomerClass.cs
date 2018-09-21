@@ -22,12 +22,28 @@ namespace MDG.Objects
         public string Email { get; set; }
     }
 
+    public class BillableItem
+    {
+        public string Name { get; set; }
+        public int Amount { get; set; }
+        public int Price { get; set; }
+    }
+
+    public class Job
+    {
+        public string Name { get; set; }
+        public List<BillableItem> Items { get; set; }
+        public Address Address = new Address();
+        public Representative Representative = new Representative();
+    }
+
     public class CustomerClass
     {
         public string Name { get; set; }
         public string Category { get; set; }
-        public List<string> Jobs { get; set; }
-        public List<Representative> Representatives { get; set; }
+        public string Path { get; set; }
         public Address Address = new Address();
+        public List<Job> Jobs { get; set; }
+        public List<Representative> Representatives { get; set; }
     }
 }
