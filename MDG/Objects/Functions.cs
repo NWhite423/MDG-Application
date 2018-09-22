@@ -17,6 +17,19 @@ namespace MDG.Objects
 {
     class Functions
     {
+        //Misc Functions
+        public static bool EntryIsDigits(string str)
+        {
+            foreach (char c in str)
+            {
+                if (c < '0' || c > '9')
+                    return false;
+            }
+
+            return true;
+        }
+
+        //CreateJob Form Functions
         public static void ClearList()
         {
             CreateJob FormC = PublicVariables.JobForm;
@@ -62,6 +75,7 @@ namespace MDG.Objects
             }
         }
 
+        //Main Menu functions
         public static bool AddCustomer(CustomerClass Customer)
         {
             PublicVariables.CustomerList.Add(Customer);
@@ -140,6 +154,7 @@ namespace MDG.Objects
                 if (Customer.Category == "Individual")
                 {
                     Card.Title = "[I] " + Customer.Name;
+                    Card.cmdRep.Enabled = false;
                 }
                 if (Customer.Category == "Company")
                 {

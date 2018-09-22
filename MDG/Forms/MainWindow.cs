@@ -86,11 +86,6 @@ namespace MDG.Forms
                 Item.Width = SplitContainerMain.Panel1.Width-15;
             }
         }
-
-        private void cmdRefresh_Click(object sender, EventArgs e)
-        {
-            Functions.PopulateCustomers();
-        }
     }
 
 

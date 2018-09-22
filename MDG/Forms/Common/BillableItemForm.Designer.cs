@@ -62,6 +62,7 @@
             this.txtCount.Name = "txtCount";
             this.txtCount.Size = new System.Drawing.Size(100, 26);
             this.txtCount.TabIndex = 2;
+            this.txtCount.TextChanged += new System.EventHandler(this.txtCount_TextChanged);
             // 
             // txtTitle
             // 
@@ -79,6 +80,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(100, 26);
             this.txtPrice.TabIndex = 5;
+            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
             // 
             // label2
             // 
@@ -92,6 +94,7 @@
             // 
             // cmdSave
             // 
+            this.cmdSave.Enabled = false;
             this.cmdSave.Location = new System.Drawing.Point(12, 67);
             this.cmdSave.Name = "cmdSave";
             this.cmdSave.Size = new System.Drawing.Size(75, 26);
@@ -112,8 +115,10 @@
             // 
             // BillableItemForm
             // 
+            this.AcceptButton = this.cmdSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cmdCancel;
             this.ClientSize = new System.Drawing.Size(421, 104);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdSave);

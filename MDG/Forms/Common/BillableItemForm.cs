@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MDG.Objects;
 
 namespace MDG.Forms.Common
 {
@@ -27,6 +28,29 @@ namespace MDG.Forms.Common
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void txtCount_TextChanged(object sender, EventArgs e)
+        {
+            if (Functions.EntryIsDigits(txtCount.Text))
+            {
+                cmdSave.Enabled = true;
+            } else
+            {
+                cmdSave.Enabled = false;
+            }
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+            if (Functions.EntryIsDigits(txtPrice.Text))
+            {
+                cmdSave.Enabled = true;
+            }
+            else
+            {
+                cmdSave.Enabled = false;
+            }
         }
     }
 }

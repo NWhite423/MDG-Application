@@ -140,11 +140,11 @@
         #endregion
         private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.Button cmdJobs;
-        private System.Windows.Forms.Button cmdRep;
         private System.Windows.Forms.Button cmdCreateJob;
         private System.Windows.Forms.Button cmdModify;
         private System.Windows.Forms.Button cmdOpenFileLocation;
         public System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button cmdDelete;
+        public System.Windows.Forms.Button cmdRep;
     }
 }
