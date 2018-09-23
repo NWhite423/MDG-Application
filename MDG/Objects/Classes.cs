@@ -48,4 +48,16 @@ namespace MDG.Objects
         public List<Job> Jobs { get; set; }
         public List<Representative> Representatives { get; set; }
     }
+
+    public class ScopeOfWorkEntry
+    {
+        public string Entry { get; set; }
+        public string Title { get; set; }
+    }
+
+    public class ExspenseEntry
+    {
+        public string Entry { get; set; }
+        public string Title { get; set; }
+    }
 }

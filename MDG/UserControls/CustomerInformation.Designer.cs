@@ -74,6 +74,7 @@
             this.cmdRep.TabIndex = 5;
             this.cmdRep.Text = "View Reps";
             this.cmdRep.UseVisualStyleBackColor = true;
+            this.cmdRep.Click += new System.EventHandler(this.cmdRep_Click);
             // 
             // cmdCreateJob
             // 
@@ -103,6 +104,7 @@
             this.cmdOpenFileLocation.TabIndex = 8;
             this.cmdOpenFileLocation.Text = "Open Location";
             this.cmdOpenFileLocation.UseVisualStyleBackColor = true;
+            this.cmdOpenFileLocation.Click += new System.EventHandler(this.cmdOpenFileLocation_Click);
             // 
             // cmdDelete
             // 

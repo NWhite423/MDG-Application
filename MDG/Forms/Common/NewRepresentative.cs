@@ -16,9 +16,7 @@ namespace MDG.Forms.Common
         {
             InitializeComponent();
         }
-
-        public object Value { get; internal set; }
-
+        
         private void cmdSaveExit_Click(object sender, EventArgs e)
         {
             RepName = txtName.Text;

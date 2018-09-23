@@ -54,6 +54,18 @@
     <Compile Include="Forms\Common\NewRepresentative.Designer.cs">
       <DependentUpon>NewRepresentative.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Legal\CreateEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Legal\CreateEntry.Designer.cs">
+      <DependentUpon>CreateEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Legal\NewContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Legal\NewContract.Designer.cs">
+      <DependentUpon>NewContract.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,7 +84,7 @@
     <Compile Include="Forms\New\CreateJob.Designer.cs">
       <DependentUpon>CreateJob.cs</DependentUpon>
     </Compile>
-    <Compile Include="Objects\CustomerClass.cs" />
+    <Compile Include="Objects\Classes.cs" />
     <Compile Include="Objects\Functions.cs" />
     <Compile Include="Objects\PublicVariables.cs" />
     <Compile Include="Program.cs" />
@@ -89,14 +101,35 @@
     <Compile Include="UserControls\CustomerInformation.Designer.cs">
       <DependentUpon>CustomerInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\Legal\FieldEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Legal\FieldEntry.Designer.cs">
+      <DependentUpon>FieldEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\LineItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\LineItem.Designer.cs">
       <DependentUpon>LineItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MainMenu\RepresentativeForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MainMenu\RepresentativeForm.Designer.cs">
+      <DependentUpon>RepresentativeForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\Common\NewRepresentative.resx">
       <DependentUpon>NewRepresentative.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Legal\CreateEntry.resx">
+      <DependentUpon>CreateEntry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Legal\NewContract.resx">
+      <DependentUpon>NewContract.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -115,15 +148,23 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Forms\Common\BillableItemForm.resx">
       <DependentUpon>BillableItemForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CustomerInformation.resx">
       <DependentUpon>CustomerInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Legal\FieldEntry.resx">
+      <DependentUpon>FieldEntry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LineItem.resx">
       <DependentUpon>LineItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MainMenu\RepresentativeForm.resx">
+      <DependentUpon>RepresentativeForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -140,11 +181,44 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\arrow.png" />
+    <Content Include="Images\arrow_up.png" />
     <Content Include="Misc\XMLCustomers.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

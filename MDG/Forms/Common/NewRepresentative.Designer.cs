@@ -132,7 +132,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewRepresentative";
@@ -149,11 +149,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Button cmdSaveExit;
         private System.Windows.Forms.Button cmdSaveClear;
         private System.Windows.Forms.Button cmdCancel;
+        public System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.TextBox txtPhone;
+        public System.Windows.Forms.TextBox TxtEmail;
     }
 }

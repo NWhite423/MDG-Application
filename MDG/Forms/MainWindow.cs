@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MDG.Forms.New;
 using MDG.UserControls;
 using MDG.Objects;
+using MDG.Forms.Legal;
 using System.Xml.Linq;
 using System.IO;
 using System.Reflection;
@@ -44,6 +45,12 @@ namespace MDG.Forms
                 
                 Item.Width = SplitContainerMain.Panel1.Width-15;
             }
+        }
+
+        private void newContractAgreementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewContract Form = new NewContract();
+            Form.Show();
         }
     }
 }

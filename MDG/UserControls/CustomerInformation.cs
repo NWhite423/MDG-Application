@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MDG.UserControls;
 using MDG.Forms.New;
 using MDG.Objects;
+using System.Diagnostics;
 
 namespace MDG.UserControls
 {
@@ -99,6 +100,16 @@ namespace MDG.UserControls
                 Functions.RemoveCustomer(Class);
                 Functions.PopulateCustomers();
             }
+        }
+
+        private void cmdRep_Click(object sender, EventArgs e)
+        {
+            Functions.ShowInformation(Class, 1);
+        }
+
+        private void cmdOpenFileLocation_Click(object sender, EventArgs e)
+        {
+            Process.Start(Class.Path);
         }
     }
 }

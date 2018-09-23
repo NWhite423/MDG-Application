@@ -1,6 +1,9 @@
 ﻿using MDG.UserControls;
+using MDG.UserControls.MainMenu;
+using MDG.Forms.Legal;
+using MDG.UserControls.Legal;
 using MDG.Forms.New;
-using MDG.Objects;
+using MDG.Forms.Common;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,9 +11,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -149,21 +149,21 @@ namespace MDG.Objects
             foreach (XElement Customer in Customers)
             {
                 //Basic values and array setup
-                CustomerClass Class = new CustomerClass();
-                Class.Name = Customer.Element("Name").Value;
-                Class.Category = Customer.Element("Category").Value;
-                Class.Path = Customer.Element("Path").Value;
+                CustomerClass customer = new CustomerClass();
+                customer.Name = Customer.Element("Name").Value;
+                customer.Category = Customer.Element("Category").Value;
+                customer.Path = Customer.Element("Path").Value;
 
                 string[] AddressArray = Customer.Element("Address").Value.Split(',');
                 List<Representative> RepArray = new List<Representative> { };
                 List<Job> JobArray = new List<Job> { };
 
                 //Address
-                Class.Address.AddressLine1 = AddressArray[0];
-                Class.Address.AddressLine2 = AddressArray[1];
-                Class.Address.City = AddressArray[2];
-                Class.Address.State = AddressArray[3];
-                Class.Address.Zip = AddressArray[4];
+                customer.Address.AddressLine1 = AddressArray[0];
+                customer.Address.AddressLine2 = AddressArray[1];
+                customer.Address.City = AddressArray[2];
+                customer.Address.State = AddressArray[3];
+                customer.Address.Zip = AddressArray[4];
 
                 //Jobs
                 //TODO: Replace with actual grabbing of value.
@@ -201,7 +201,7 @@ namespace MDG.Objects
                     entry.Items = billableItems;
                     JobArray.Add(entry);
                 }
-                Class.Jobs = JobArray;
+                customer.Jobs = JobArray;
 
                 //Representatives
                 foreach (XElement Rep in Customers.Elements("Representatives").Elements())
@@ -212,16 +212,15 @@ namespace MDG.Objects
                     RepClass.Email = Rep.Element("Email").Value;
                     RepArray.Add(RepClass);
                 }
-                Class.Representatives = RepArray;
+                customer.Representatives = RepArray;
 
                 //Add Customer to CustomerList
-                PublicVariables.CustomerList.Add(Class);
+                PublicVariables.CustomerList.Add(customer);
             }
         }
 
         public static bool AddCustomer(CustomerClass Customer)
         {
-            PublicVariables.CustomerList.Add(Customer);
             var fileName = Path.Combine(
             Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)
                 , @"Misc\XMLCustomers.xml");
@@ -311,6 +310,128 @@ namespace MDG.Objects
                 Container.Panel1.Controls.Add(Card);
                 Card.Class = Customer;
                 i++;
+            }
+        }
+
+        public static void AddRepresentative(CustomerClass Class)
+        {
+            NewRepresentative RepForm = new NewRepresentative();
+            DialogResult result = RepForm.ShowDialog();
+            if (!result.Equals(DialogResult.Cancel))
+            {
+                Representative RepItem = new Representative
+                {
+                    Name = RepForm.txtName.Text,
+                    Phone = RepForm.txtPhone.Text,
+                    Email = RepForm.TxtEmail.Text
+                };
+
+                Class.Representatives.Add(RepItem);
+
+                var fileName = Path.Combine(
+                Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)
+                    , @"Misc\XMLCustomers.xml");
+
+                XDocument Doc = XDocument.Load(fileName);
+
+                XElement entry = new XElement("Representative",
+                    new XElement("Name", RepForm.txtName.Text),
+                    new XElement("Phone", RepForm.txtPhone.Text),
+                    new XElement("Email", RepForm.TxtEmail.Text)
+                    );
+
+                foreach (XElement customer in Doc.Descendants("Customer"))
+                {
+                    if (customer.Element("Name").Value == Class.Name)
+                    {
+                        MessageBox.Show("Representative created");
+                        customer.Element("Representatives").Add(entry);
+                        Doc.Save(fileName);
+                        Functions.PopulateCustomerList();
+                        Functions.ShowInformation(Class, 1);
+                    }
+                }
+            }
+        }
+
+        public static void ShowInformation(CustomerClass Class, int Setting)
+        {
+            switch (Setting)
+            {
+                case 1:
+                    {
+                        Button button = new Button();
+                        button.Size = new Size(150, 26);
+                        button.Location = new Point(0, 0);
+                        button.Text = "Add Representative";
+                        button.Click += (s, e) => { AddRepresentative(Class); };
+                        PublicVariables.Container.Panel2.Controls.Add(button);
+
+                        var options = Class.Representatives;
+                        int i = 0;
+                        foreach (Representative Rep in options)
+                        {
+                            RepresentativeForm RepForm = new RepresentativeForm();
+                            RepForm.lblName.Text = Rep.Name;
+                            RepForm.lblPhone.Text = Rep.Phone;
+                            RepForm.lblEmail.Text = Rep.Email;
+                            RepForm.lblCompanyName.Text = Class.Name;
+
+                            RepForm.Location = new Point(0, ((RepForm.Height + 1) * i) + 45);
+                            RepForm.Width = RepForm.lblName.Width + 8;
+                            PublicVariables.Container.Panel2.Controls.Add(RepForm);
+                            i++;
+                        }
+                        break;
+                    }
+            }
+        }
+
+        //CreateAgreement
+        public static void UpdateTableItems(NewContract form, int Field)
+        {
+            switch (Field)
+            {
+                case 1:
+                    {
+                        form.PnlSOW.Controls.Clear();
+                        int i = 0;
+                        List<ScopeOfWorkEntry> entries = form.SoWEntries;
+                        foreach (ScopeOfWorkEntry entry in entries)
+                        {
+                            FieldEntry entryForm = new FieldEntry();
+                            entryForm.Index = i;
+                            entryForm.Concern = 0;
+                            entryForm.masterForm = form;
+                            entryForm.LblTitle.Text = entry.Title;
+                            entryForm.txtItem.Text = entry.Entry;
+                            Debug.WriteLine("Title: " + entry.Title + "\nText: " + entry.Entry);
+                            entryForm.Location = new Point(0, (entryForm.Height + 1) * i);
+                            form.PnlSOW.Controls.Add(entryForm);
+                            i++;
+                        }
+                        return;
+                    }
+                case 2:
+                    {
+                        form.PnlExspenses.Controls.Clear();
+                        int i = 0;
+                        List<ScopeOfWorkEntry> entries = form.SoWEntries;
+                        foreach (ScopeOfWorkEntry entry in entries)
+                        {
+                            FieldEntry entryForm = new FieldEntry();
+                            entryForm.Index = i;
+                            entryForm.Concern = 1;
+                            entryForm.masterForm = form;
+                            entryForm.LblTitle.Text = entry.Title;
+                            entryForm.txtItem.Text = entry.Entry;
+                            Debug.WriteLine("Title: " + entry.Title + "\nText: " + entry.Entry);
+                            entryForm.Location = new Point(0, (entryForm.Height + 1) * i);
+                            form.PnlExspenses.Controls.Add(entryForm);
+                            i++;
+                        }
+                        return;
+                    }
             }
         }
     }
