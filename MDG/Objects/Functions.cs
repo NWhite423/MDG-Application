@@ -1,5 +1,6 @@
 ﻿using MDG.UserControls;
 using MDG.Forms.New;
+using MDG.Objects;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -64,6 +65,7 @@ namespace MDG.Objects
                 string SecondLine = Item.Amount.ToString() + " * " + Item.Price.ToString() + " = " + (count * price).ToString();
                 Card.lblInfo.Text = SecondLine;
                 Card.ItemInfo = Item;
+                Card.Tag = "Card";
 
                 //Create Card
                 Point Position = new Point(0, (Card.Size.Height + 1) * i);
@@ -75,7 +77,148 @@ namespace MDG.Objects
             }
         }
 
+        public static void AddJobtoCustomer(CustomerClass Customer, Job JobEntry)
+        {
+            var fileName = Path.Combine(
+            Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)
+                , @"Misc\XMLCustomers.xml");
+
+            XDocument Doc = XDocument.Load(fileName);
+            var Jobs = Customer.Jobs;
+            var Name = Customer.Name;
+
+            foreach (XElement CustomerItem in Doc.Descendants("Customer"))
+            {
+                if (CustomerItem.Element("Name").Value == Name)
+                {
+                    var JobItems = CustomerItem.Element("Jobs");
+                    XElement JobItem = new XElement("Job",
+                        new XElement("Name", JobEntry.Name),
+                        new XElement("JobNumber", JobEntry.JobNumber),
+                        new XElement("Path", JobEntry.Path),
+                        new XElement("Representative",
+                            new XElement("Name", JobEntry.Representative.Name),
+                            new XElement("Phone", JobEntry.Representative.Phone),
+                            new XElement("Email", JobEntry.Representative.Email)
+                            ),
+                        new XElement("Address", 
+                            new XElement("AddressLine1", JobEntry.Address.AddressLine1),
+                            new XElement("AddressLine2", JobEntry.Address.AddressLine2),
+                            new XElement("City", JobEntry.Address.City),
+                            new XElement("State", JobEntry.Address.State),
+                            new XElement("Zip", JobEntry.Address.Zip)
+                            )
+                        );
+                    var BillableItem = new XElement("BillableItems");
+                    foreach (BillableItem billableItem in JobEntry.Items)
+                    {
+                        var BillItem = new XElement("BillableItem",
+                            new XElement("Name", billableItem.Name),
+                            new XElement("Amount", billableItem.Amount),
+                            new XElement("Price", billableItem.Price)
+                            );
+                        BillableItem.Add(BillItem);
+                    }
+                    JobItem.Add(BillableItem);
+                    JobItems.Add(JobItem);
+                    Doc.Save(fileName);
+                }
+            }
+
+            Directory.CreateDirectory(JobEntry.Path);
+            foreach (string subDir in PublicVariables.JobSubDir)
+            {
+                Directory.CreateDirectory(JobEntry.Path + @"\" + subDir);
+            }
+
+            MessageBox.Show("Job information has been added to the customer and the directory has been created.");
+            PopulateCustomerList();
+        }
+
         //Main Menu functions
+        public static void PopulateCustomerList()
+        {
+            PublicVariables.CustomerList.Clear();
+
+            var fileName = Path.Combine(
+               Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)
+                   , @"Misc\XMLCustomers.xml");
+            XDocument Doc = XDocument.Load(fileName);
+            var Customers = Doc.Descendants("Customer");
+
+            foreach (XElement Customer in Customers)
+            {
+                //Basic values and array setup
+                CustomerClass Class = new CustomerClass();
+                Class.Name = Customer.Element("Name").Value;
+                Class.Category = Customer.Element("Category").Value;
+                Class.Path = Customer.Element("Path").Value;
+
+                string[] AddressArray = Customer.Element("Address").Value.Split(',');
+                List<Representative> RepArray = new List<Representative> { };
+                List<Job> JobArray = new List<Job> { };
+
+                //Address
+                Class.Address.AddressLine1 = AddressArray[0];
+                Class.Address.AddressLine2 = AddressArray[1];
+                Class.Address.City = AddressArray[2];
+                Class.Address.State = AddressArray[3];
+                Class.Address.Zip = AddressArray[4];
+
+                //Jobs
+                //TODO: Replace with actual grabbing of value.
+                var XmlJobsArray = Customer.Element("Jobs").Elements();
+                Debug.WriteLine(String.Format("There are {0} job entries", XmlJobsArray.Count()));
+                foreach (XElement JobEntry in XmlJobsArray)
+                {
+                    Job entry = new Job
+                    {
+                        Name = JobEntry.Element("Name").Value,
+                        JobNumber = JobEntry.Element("JobNumber").Value,
+                        Path = JobEntry.Element("Path").Value
+                    };
+                    entry.Representative.Name = JobEntry.Element("Representative").Element("Name").Value;
+                    entry.Representative.Phone = JobEntry.Element("Representative").Element("Phone").Value;
+                    entry.Representative.Email = JobEntry.Element("Representative").Element("Email").Value;
+
+                    entry.Address.AddressLine1 = JobEntry.Element("Address").Element("AddressLine1").Value;
+                    entry.Address.AddressLine2 = JobEntry.Element("Address").Element("AddressLine2").Value;
+                    entry.Address.City = JobEntry.Element("Address").Element("City").Value;
+                    entry.Address.State = JobEntry.Element("Address").Element("State").Value;
+                    entry.Address.Zip = JobEntry.Element("Address").Element("Zip").Value;
+
+                    List<BillableItem> billableItems = new List<BillableItem> { };
+                    foreach (XElement billItem in JobEntry.Element("BillableItems").Elements())
+                    {
+                        BillableItem billableItem = new BillableItem
+                        {
+                            Name = billItem.Element("Name").Value,
+                            Amount = Convert.ToInt32(billItem.Element("Amount").Value),
+                            Price = Convert.ToInt32(billItem.Element("Price").Value)
+                        };
+                        billableItems.Add(billableItem);
+                    }
+                    entry.Items = billableItems;
+                    JobArray.Add(entry);
+                }
+                Class.Jobs = JobArray;
+
+                //Representatives
+                foreach (XElement Rep in Customers.Elements("Representatives").Elements())
+                {
+                    Representative RepClass = new Representative();
+                    RepClass.Name = Rep.Element("Name").Value;
+                    RepClass.Phone = Rep.Element("Phone").Value;
+                    RepClass.Email = Rep.Element("Email").Value;
+                    RepArray.Add(RepClass);
+                }
+                Class.Representatives = RepArray;
+
+                //Add Customer to CustomerList
+                PublicVariables.CustomerList.Add(Class);
+            }
+        }
+
         public static bool AddCustomer(CustomerClass Customer)
         {
             PublicVariables.CustomerList.Add(Customer);
@@ -113,6 +256,7 @@ namespace MDG.Objects
             Doc.Save(fileName);
             Directory.CreateDirectory(Customer.Path);
             PopulateCustomers();
+            PopulateCustomerList();
 
             return true;
         }
@@ -129,7 +273,8 @@ namespace MDG.Objects
                 .Where(node => (string)node.Element("Name") == Customer.Name)
                 .Remove();
 
-            Doc.Save(fileName);            
+            Doc.Save(fileName);
+            PopulateCustomerList();
             return true;
         }
         

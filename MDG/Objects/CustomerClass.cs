@@ -31,7 +31,9 @@ namespace MDG.Objects
 
     public class Job
     {
+        public string JobNumber { get; set; }
         public string Name { get; set; }
+        public string Path { get; set; }
         public List<BillableItem> Items { get; set; }
         public Address Address = new Address();
         public Representative Representative = new Representative();

@@ -40,13 +40,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmbRepresentative = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtProjectZip = new System.Windows.Forms.TextBox();
-            this.txtProjectState = new System.Windows.Forms.TextBox();
-            this.txtProjectCity = new System.Windows.Forms.TextBox();
-            this.txtProjectAddress2 = new System.Windows.Forms.TextBox();
-            this.txtProjectAddress1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtProjectName = new System.Windows.Forms.TextBox();
+            this.txtProjectAddress1 = new System.Windows.Forms.TextBox();
+            this.txtProjectAddress2 = new System.Windows.Forms.TextBox();
+            this.txtProjectCity = new System.Windows.Forms.TextBox();
+            this.txtProjectState = new System.Windows.Forms.TextBox();
+            this.txtProjectZip = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblProjectNumber = new System.Windows.Forms.Label();
@@ -64,6 +64,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 19);
             this.label1.TabIndex = 0;
+            this.label1.Tag = "Button";
             this.label1.Text = "Company Information:";
             // 
             // label2
@@ -73,6 +74,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 19);
             this.label2.TabIndex = 2;
+            this.label2.Tag = "Button";
             this.label2.Text = "Name:";
             // 
             // txtCompanyName
@@ -140,6 +142,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 19);
             this.label3.TabIndex = 11;
+            this.label3.Tag = "Button";
             this.label3.Text = "Address:";
             // 
             // label4
@@ -149,6 +152,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 19);
             this.label4.TabIndex = 15;
+            this.label4.Tag = "Button";
             this.label4.Text = "Representative:";
             // 
             // cmbRepresentative
@@ -161,6 +165,7 @@
             this.cmbRepresentative.Name = "cmbRepresentative";
             this.cmbRepresentative.Size = new System.Drawing.Size(328, 27);
             this.cmbRepresentative.TabIndex = 7;
+            this.cmbRepresentative.Tag = "Representative";
             // 
             // label5
             // 
@@ -171,44 +176,17 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(435, 2);
             this.label5.TabIndex = 17;
+            this.label5.Tag = "Button";
             // 
-            // txtProjectZip
+            // txtProjectName
             // 
-            this.txtProjectZip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProjectZip.Location = new System.Drawing.Point(347, 397);
-            this.txtProjectZip.Name = "txtProjectZip";
-            this.txtProjectZip.Size = new System.Drawing.Size(100, 26);
-            this.txtProjectZip.TabIndex = 14;
-            this.txtProjectZip.Tag = "Address Zip Code";
-            // 
-            // txtProjectState
-            // 
-            this.txtProjectState.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProjectState.Location = new System.Drawing.Point(263, 397);
-            this.txtProjectState.Name = "txtProjectState";
-            this.txtProjectState.Size = new System.Drawing.Size(78, 26);
-            this.txtProjectState.TabIndex = 13;
-            this.txtProjectState.Tag = "Address State";
-            // 
-            // txtProjectCity
-            // 
-            this.txtProjectCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtProjectName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProjectCity.Location = new System.Drawing.Point(12, 397);
-            this.txtProjectCity.Name = "txtProjectCity";
-            this.txtProjectCity.Size = new System.Drawing.Size(245, 26);
-            this.txtProjectCity.TabIndex = 12;
-            this.txtProjectCity.Tag = "Addres City";
-            // 
-            // txtProjectAddress2
-            // 
-            this.txtProjectAddress2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProjectAddress2.Location = new System.Drawing.Point(12, 365);
-            this.txtProjectAddress2.Name = "txtProjectAddress2";
-            this.txtProjectAddress2.Size = new System.Drawing.Size(435, 26);
-            this.txtProjectAddress2.TabIndex = 10;
-            this.txtProjectAddress2.Tag = "Address Line 2";
+            this.txtProjectName.Location = new System.Drawing.Point(67, 282);
+            this.txtProjectName.Name = "txtProjectName";
+            this.txtProjectName.Size = new System.Drawing.Size(380, 26);
+            this.txtProjectName.TabIndex = 8;
+            this.txtProjectName.Tag = "Project Name";
             // 
             // txtProjectAddress1
             // 
@@ -220,6 +198,44 @@
             this.txtProjectAddress1.TabIndex = 9;
             this.txtProjectAddress1.Tag = "Address Line 1";
             // 
+            // txtProjectAddress2
+            // 
+            this.txtProjectAddress2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProjectAddress2.Location = new System.Drawing.Point(12, 365);
+            this.txtProjectAddress2.Name = "txtProjectAddress2";
+            this.txtProjectAddress2.Size = new System.Drawing.Size(435, 26);
+            this.txtProjectAddress2.TabIndex = 10;
+            this.txtProjectAddress2.Tag = "Address Line 2";
+            // 
+            // txtProjectCity
+            // 
+            this.txtProjectCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProjectCity.Location = new System.Drawing.Point(12, 397);
+            this.txtProjectCity.Name = "txtProjectCity";
+            this.txtProjectCity.Size = new System.Drawing.Size(245, 26);
+            this.txtProjectCity.TabIndex = 12;
+            this.txtProjectCity.Tag = "Addres City";
+            // 
+            // txtProjectState
+            // 
+            this.txtProjectState.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProjectState.Location = new System.Drawing.Point(263, 397);
+            this.txtProjectState.Name = "txtProjectState";
+            this.txtProjectState.Size = new System.Drawing.Size(78, 26);
+            this.txtProjectState.TabIndex = 13;
+            this.txtProjectState.Tag = "Address State";
+            // 
+            // txtProjectZip
+            // 
+            this.txtProjectZip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtProjectZip.Location = new System.Drawing.Point(347, 397);
+            this.txtProjectZip.Name = "txtProjectZip";
+            this.txtProjectZip.Size = new System.Drawing.Size(100, 26);
+            this.txtProjectZip.TabIndex = 14;
+            this.txtProjectZip.Tag = "Address Zip Code";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -228,16 +244,8 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 19);
             this.label6.TabIndex = 23;
+            this.label6.Tag = "Button";
             this.label6.Text = "Address:";
-            // 
-            // txtProjectName
-            // 
-            this.txtProjectName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtProjectName.Location = new System.Drawing.Point(67, 282);
-            this.txtProjectName.Name = "txtProjectName";
-            this.txtProjectName.Size = new System.Drawing.Size(380, 26);
-            this.txtProjectName.TabIndex = 8;
             // 
             // label7
             // 
@@ -246,6 +254,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 19);
             this.label7.TabIndex = 19;
+            this.label7.Tag = "Button";
             this.label7.Text = "Name:";
             // 
             // label8
@@ -255,6 +264,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(129, 19);
             this.label8.TabIndex = 18;
+            this.label8.Tag = "Button";
             this.label8.Text = "Project Information:";
             // 
             // lblProjectNumber
@@ -264,6 +274,7 @@
             this.lblProjectNumber.Name = "lblProjectNumber";
             this.lblProjectNumber.Size = new System.Drawing.Size(262, 19);
             this.lblProjectNumber.TabIndex = 27;
+            this.lblProjectNumber.Tag = "Button";
             this.lblProjectNumber.Text = "Project Number: 2018-XX";
             this.lblProjectNumber.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
@@ -276,6 +287,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(435, 2);
             this.label9.TabIndex = 28;
+            this.label9.Tag = "Button";
             // 
             // label10
             // 
@@ -284,6 +296,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(93, 19);
             this.label10.TabIndex = 29;
+            this.label10.Tag = "Button";
             this.label10.Text = "Billable Items:";
             // 
             // cmdAddItem
@@ -293,6 +306,7 @@
             this.cmdAddItem.Name = "cmdAddItem";
             this.cmdAddItem.Size = new System.Drawing.Size(75, 26);
             this.cmdAddItem.TabIndex = 31;
+            this.cmdAddItem.Tag = "Button";
             this.cmdAddItem.Text = "Add Item";
             this.cmdAddItem.UseVisualStyleBackColor = true;
             this.cmdAddItem.Click += new System.EventHandler(this.button1_Click);
@@ -304,8 +318,10 @@
             this.cmdCreate.Name = "cmdCreate";
             this.cmdCreate.Size = new System.Drawing.Size(75, 26);
             this.cmdCreate.TabIndex = 32;
+            this.cmdCreate.Tag = "Button";
             this.cmdCreate.Text = "Create";
             this.cmdCreate.UseVisualStyleBackColor = true;
+            this.cmdCreate.Click += new System.EventHandler(this.cmdCreate_Click);
             // 
             // cmdCancel
             // 
@@ -313,8 +329,10 @@
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(75, 26);
             this.cmdCancel.TabIndex = 33;
+            this.cmdCancel.Tag = "Button";
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
+            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // CreateJob
             // 
@@ -357,6 +375,7 @@
             this.Name = "CreateJob";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "Button";
             this.Text = "Create Job";
             this.Load += new System.EventHandler(this.CreateJob_Load);
             this.ResumeLayout(false);
@@ -371,13 +390,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtProjectZip;
-        private System.Windows.Forms.TextBox txtProjectState;
-        private System.Windows.Forms.TextBox txtProjectCity;
-        private System.Windows.Forms.TextBox txtProjectAddress2;
-        private System.Windows.Forms.TextBox txtProjectAddress1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtProjectName;
+        private System.Windows.Forms.TextBox txtProjectAddress1;
+        private System.Windows.Forms.TextBox txtProjectAddress2;
+        private System.Windows.Forms.TextBox txtProjectCity;
+        private System.Windows.Forms.TextBox txtProjectState;
+        private System.Windows.Forms.TextBox txtProjectZip;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblProjectNumber;

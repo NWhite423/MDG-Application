@@ -16,5 +16,6 @@ namespace MDG.Objects
         public static SplitContainer Container = new SplitContainer();
         public static List<BillableItem> ItemList = new List<BillableItem> { };
         public static CreateJob JobForm;
+        public static List<string> JobSubDir = new List<string> { "CAD", "Legal", "Finances", "Excel", "Misc", "Output", "Input" };
     }
 }
