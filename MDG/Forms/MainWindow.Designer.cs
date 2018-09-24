@@ -38,20 +38,15 @@
             this.addendumAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.terminationAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripNew = new System.Windows.Forms.MenuStrip();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.tsInformation = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainerMain)).BeginInit();
             this.SplitContainerMain.SuspendLayout();
             this.menuStripNew.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // SplitContainerMain
             // 
-            this.SplitContainerMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.SplitContainerMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SplitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SplitContainerMain.Location = new System.Drawing.Point(0, 25);
             this.SplitContainerMain.Name = "SplitContainerMain";
             // 
@@ -63,7 +58,7 @@
             // SplitContainerMain.Panel2
             // 
             this.SplitContainerMain.Panel2.AutoScroll = true;
-            this.SplitContainerMain.Size = new System.Drawing.Size(1208, 695);
+            this.SplitContainerMain.Size = new System.Drawing.Size(1208, 720);
             this.SplitContainerMain.SplitterDistance = 512;
             this.SplitContainerMain.TabIndex = 1;
             // 
@@ -139,28 +134,11 @@
             this.menuStripNew.TabIndex = 0;
             this.menuStripNew.Text = "menuStrip1";
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsInformation});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 723);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1208, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // tsInformation
-            // 
-            this.tsInformation.Name = "tsInformation";
-            this.tsInformation.Size = new System.Drawing.Size(0, 17);
-            this.tsInformation.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1208, 745);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.SplitContainerMain);
             this.Controls.Add(this.menuStripNew);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -173,8 +151,6 @@
             this.SplitContainerMain.ResumeLayout(false);
             this.menuStripNew.ResumeLayout(false);
             this.menuStripNew.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -191,7 +167,5 @@
         private System.Windows.Forms.ToolStripMenuItem terminationAgreementToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStripNew;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        public System.Windows.Forms.ToolStripStatusLabel tsInformation;
-        public System.Windows.Forms.StatusStrip statusStrip1;
     }
 }

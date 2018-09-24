@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+  <Category name="General">
+    <Setting>
+      <Name>Test String</Name>
+      <Type>string</Type>
+      <value>Test Entry</value>
+    </Setting>
+    <Setting>
+      <Name>Test Checkbox</Name>
+      <Type>checkbox</Type>
+      <value>true</value>
+    </Setting>
+    <Setting>
+      <Name>Test Radial</Name>
+      <Type>radial</Type>
+      <value>1</value>
+      <options>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </options>
+    </Setting>
+    <Setting>
+      <Name>Test ComboBox</Name>
+      <Type>combo</Type>
+      <value>2</value>
+      <options>
+        <option>Option 1</option>
+        <option>Option 2</option>
+        <option>Option 3</option>
+      </options>
+    </Setting>
+  </Category>
+</settings>

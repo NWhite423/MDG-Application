@@ -265,6 +265,8 @@ namespace MDG.Objects
         public static bool RemoveCustomer(CustomerClass Customer)
         {
             PublicVariables.CustomerList.Remove(Customer);
+            var newfilelocation = 
+                Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + @"\Customer Backups";
             var fileName = Path.Combine(
             Path.GetDirectoryName(Assembly.GetEntryAssembly().Location)
                 , @"Misc\XMLCustomers.xml");
@@ -274,6 +276,12 @@ namespace MDG.Objects
                 .Where(node => (string)node.Element("Name") == Customer.Name)
                 .Remove();
 
+            string currentPath = Customer.Path;
+            if (!Directory.Exists(newfilelocation))
+            {
+                Directory.CreateDirectory(newfilelocation);
+            }
+            Directory.Move(currentPath, newfilelocation + @"\" + Customer.Name);
             Doc.Save(fileName);
             PopulateCustomerList();
             return true;
@@ -287,28 +295,17 @@ namespace MDG.Objects
             foreach (CustomerClass Customer in PublicVariables.CustomerList)
             {
                 CustomerInformation Card = new CustomerInformation();
-                int y = Container.Panel1.Width;
-                string Address = "";
-                if (Customer.Address.AddressLine2 == "")
-                {
-                    Address += Customer.Address.AddressLine1 + "\n" + Customer.Address.City + ", " + Customer.Address.State + " " + Customer.Address.Zip;
-                }
-                else
-                {
-                    Address += Customer.Address.AddressLine1 + ", " + Customer.Address.AddressLine2 + "\n" + Customer.Address.City + ", " + Customer.Address.State + " " + Customer.Address.Zip;
-                }
                 if (Customer.Category == "Individual")
                 {
-                    Card.Title = "[I] " + Customer.Name;
-                    Card.cmdRep.Enabled = false;
+                    Card.lblTitle.Text = "[I] " + Customer.Name;
+                    Card.cmsView.Items.Remove(Card.cmsView.Items.Find("viewRepresentatives", false).First());
                 }
                 if (Customer.Category == "Company")
                 {
-                    Card.Title = "[C] " + Customer.Name;
+                    Card.lblTitle.Text = "[C] " + Customer.Name;
                 }
-                Card.Address = Address;
                 Card.Location = new Point(0, (Card.Height + 1) * i);
-                Card.Width = y - 20;
+                Card.Width = Container.Panel1.Width;
                 Container.Panel1.Controls.Add(Card);
                 Card.Class = Customer;
                 i++;
@@ -423,14 +420,6 @@ namespace MDG.Objects
             }
         }
 
-        public static void NotifyUser(string Msg, int Duration = 5000)
-        {
-            ToolStripStatusLabel label = new ToolStripStatusLabel();
-            label.Text = Msg;
-            PublicVariables.Strip.Items.Add(label);
-            Thread.Sleep(Duration);
-            PublicVariables.Strip.Items.Clear();
-        }
         //CreateAgreement
         public static void UpdateTableItems(NewContract form, int Field)
         {

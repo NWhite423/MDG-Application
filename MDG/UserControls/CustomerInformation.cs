@@ -21,30 +21,6 @@ namespace MDG.UserControls
             InitializeComponent();
         }
 
-        public string Title
-        {
-            get
-            {
-                return lblTitle.Text;
-            }
-            set
-            {
-                lblTitle.Text = value;
-            }
-        }
-
-        public string Address
-        {
-            get
-            {
-                return lblAddress.Text;
-            }
-            set
-            {
-                lblAddress.Text = value;
-            }
-        }
-
         public CustomerClass Class { get; set; }
 
         private void cmdCreateJob_Click(object sender, EventArgs e)
@@ -82,12 +58,12 @@ namespace MDG.UserControls
         {
             if (Class.Category == "Individual")
             {
-                cmdRep.Enabled = false;
+                cmdView.Enabled = false;
                 return;
             }
             if (Class.Category == "Company")
             {
-                cmdRep.Enabled = true;
+                cmdView.Enabled = true;
                 return;
             }
         }
@@ -104,15 +80,23 @@ namespace MDG.UserControls
 
         private void cmdRep_Click(object sender, EventArgs e)
         {
-            Functions.ShowInformation(Class, 1);
+            //Point position = new Point(cmdNew.Left, cmdNew.Height);
+            //cmsNew.Show(cmdNew, position);
+            Point location = new Point(0, cmdView.Height);
+            cmsView.Show(cmdView, location);
         }
 
-        private void cmdOpenFileLocation_Click(object sender, EventArgs e)
+        private void openFileLocation_Click(object sender, EventArgs e)
         {
             Process.Start(Class.Path);
         }
 
-        private void cmdJobs_Click(object sender, EventArgs e)
+        private void viewRepresentatives_Click(object sender, EventArgs e)
+        {
+            Functions.ShowInformation(Class, 1);
+        }
+
+        private void viewJobs_Click(object sender, EventArgs e)
         {
             Functions.ShowInformation(Class, 2);
         }

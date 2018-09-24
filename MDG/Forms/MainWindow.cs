@@ -36,7 +36,6 @@ namespace MDG.Forms
             Functions.PopulateCustomerList();
             PublicVariables.Container = SplitContainerMain;
             Functions.PopulateCustomers();
-            PublicVariables.Strip = statusStrip1;
         }
 
         private void SplitContainerMain_Panel1_Resize(object sender, EventArgs e)
@@ -44,7 +43,7 @@ namespace MDG.Forms
             foreach (CustomerInformation Item in SplitContainerMain.Panel1.Controls)
             {
                 
-                Item.Width = SplitContainerMain.Panel1.Width-15;
+                Item.Width = SplitContainerMain.Panel1.Width;
             }
         }
 
