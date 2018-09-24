@@ -111,5 +111,10 @@ namespace MDG.UserControls
         {
             Process.Start(Class.Path);
         }
+
+        private void cmdJobs_Click(object sender, EventArgs e)
+        {
+            Functions.ShowInformation(Class, 2);
+        }
     }
 }

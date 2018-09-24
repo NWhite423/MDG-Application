@@ -72,6 +72,7 @@
             this.lblEmail.Size = new System.Drawing.Size(45, 19);
             this.lblEmail.TabIndex = 3;
             this.lblEmail.Text = "label2";
+            this.lblEmail.Click += new System.EventHandler(this.lblEmail_click);
             // 
             // cmdModify
             // 
@@ -91,7 +92,7 @@
             this.cmdDelete.Text = "Remove";
             this.cmdDelete.UseVisualStyleBackColor = true;
             // 
-            // Representative
+            // RepresentativeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,9 +103,9 @@
             this.Controls.Add(this.lblCompanyName);
             this.Controls.Add(this.lblName);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(387, 115);
-            this.Name = "Representative";
+            this.Name = "RepresentativeForm";
             this.Size = new System.Drawing.Size(387, 115);
             this.ResumeLayout(false);
             this.PerformLayout();

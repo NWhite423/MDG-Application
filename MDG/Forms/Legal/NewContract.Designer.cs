@@ -419,7 +419,7 @@
         public System.Windows.Forms.Panel PnlExspenses;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbCustomers;
-        private System.Windows.Forms.ComboBox cmbJobs;
+        public System.Windows.Forms.ComboBox cmbCustomers;
+        public System.Windows.Forms.ComboBox cmbJobs;
     }
 }

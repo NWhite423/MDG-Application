@@ -65,6 +65,7 @@
             this.cmdJobs.TabIndex = 4;
             this.cmdJobs.Text = "View Jobs";
             this.cmdJobs.UseVisualStyleBackColor = true;
+            this.cmdJobs.Click += new System.EventHandler(this.cmdJobs_Click);
             // 
             // cmdRep
             // 

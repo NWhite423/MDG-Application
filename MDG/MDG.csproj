@@ -113,6 +113,12 @@
     <Compile Include="UserControls\LineItem.Designer.cs">
       <DependentUpon>LineItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MainMenu\JobForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MainMenu\JobForm.Designer.cs">
+      <DependentUpon>JobForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MainMenu\RepresentativeForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\LineItem.resx">
       <DependentUpon>LineItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MainMenu\JobForm.resx">
+      <DependentUpon>JobForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MainMenu\RepresentativeForm.resx">
       <DependentUpon>RepresentativeForm.cs</DependentUpon>

@@ -36,6 +36,7 @@ namespace MDG.Forms
             Functions.PopulateCustomerList();
             PublicVariables.Container = SplitContainerMain;
             Functions.PopulateCustomers();
+            PublicVariables.Strip = statusStrip1;
         }
 
         private void SplitContainerMain_Panel1_Resize(object sender, EventArgs e)
@@ -51,6 +52,15 @@ namespace MDG.Forms
         {
             NewContract Form = new NewContract();
             Form.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
         }
     }
 }

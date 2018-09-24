@@ -13,6 +13,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using System.Threading;
 
 namespace MDG.Objects
 {
@@ -133,6 +134,7 @@ namespace MDG.Objects
 
             MessageBox.Show("Job information has been added to the customer and the directory has been created.");
             PopulateCustomerList();
+            ShowInformation(Customer, 2);
         }
 
         //Main Menu functions
@@ -360,6 +362,7 @@ namespace MDG.Objects
             {
                 case 1:
                     {
+                        PublicVariables.Container.Panel2.Controls.Clear();
                         Button button = new Button();
                         button.Size = new Size(150, 26);
                         button.Location = new Point(0, 0);
@@ -384,9 +387,50 @@ namespace MDG.Objects
                         }
                         break;
                     }
+                case 2:
+                    {
+                        PublicVariables.Container.Panel2.Controls.Clear();
+                        var options = Class.Jobs;
+                        int i = 0;
+                        foreach (Job job in options)
+                        {
+                            JobForm jobForm = new JobForm();
+                            jobForm.lblTitle.Text = job.Name;
+                            if (Class.Category == "Company")
+                            {
+                                jobForm.lblCustomer.Text = Class.Name + " (" + job.Representative.Name + ")";
+                            } else
+                            {
+                                jobForm.lblCustomer.Text = Class.Name;
+                            }
+                            jobForm.lblJobNumber.Text = job.JobNumber;
+                            if (job.Address.AddressLine2 == "")
+                            {
+                                jobForm.lblAddress.Text = job.Address.AddressLine1 + "\n" + job.Address.City + ", " + job.Address.State + " " + job.Address.Zip;
+                            }
+                            else
+                            {
+                                jobForm.lblAddress.Text = job.Address.AddressLine1 + "\n" + job.Address.AddressLine2 + "\n" + job.Address.City + ", " + job.Address.State + " " + job.Address.Zip;
+                            }
+                            jobForm.Class = Class;
+                            jobForm.CurrentJob = job;
+                            jobForm.Location = new Point(0, ((jobForm.Height + 1) * i) + 45);
+                            PublicVariables.Container.Panel2.Controls.Add(jobForm);
+                            i++;
+                        }
+                        break;
+                    }
             }
         }
 
+        public static void NotifyUser(string Msg, int Duration = 5000)
+        {
+            ToolStripStatusLabel label = new ToolStripStatusLabel();
+            label.Text = Msg;
+            PublicVariables.Strip.Items.Add(label);
+            Thread.Sleep(Duration);
+            PublicVariables.Strip.Items.Clear();
+        }
         //CreateAgreement
         public static void UpdateTableItems(NewContract form, int Field)
         {

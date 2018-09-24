@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MDG.Objects;
+using System.Threading;
 
 namespace MDG.UserControls.MainMenu
 {
@@ -15,6 +17,11 @@ namespace MDG.UserControls.MainMenu
         public RepresentativeForm()
         {
             InitializeComponent();
+        }
+
+        private void lblEmail_click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(lblEmail.Text);
         }
     }
 }
