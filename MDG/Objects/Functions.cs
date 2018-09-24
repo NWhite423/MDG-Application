@@ -387,6 +387,42 @@ namespace MDG.Objects
                 case 2:
                     {
                         PublicVariables.Container.Panel2.Controls.Clear();
+
+                        Button button = new Button();
+                        button.Size = new Size(150, 26);
+                        button.Location = new Point(0, 0);
+                        button.Text = "Add Job";
+                        button.Click += (s, e) => {
+                            CreateJob form = new CreateJob();
+                            form.txtCompanyName.Text = Class.Name;
+                            form.txtCompanyAddress1.Text = Class.Address.AddressLine1;
+                            form.txtCompanyAddress2.Text = Class.Address.AddressLine2;
+                            form.txtCompanyCity.Text = Class.Address.City;
+                            form.txtCompanyState.Text = Class.Address.State;
+                            form.txtCompanyZip.Text = Class.Address.Zip;
+                            form.txtCompanyName.Enabled = false;
+                            form.txtCompanyAddress1.Enabled = false;
+                            form.txtCompanyAddress2.Enabled = false;
+                            form.txtCompanyCity.Enabled = false;
+                            form.txtCompanyState.Enabled = false;
+                            form.txtCompanyZip.Enabled = false;
+                            if (Class.Category == "Individual")
+                            {
+                                form.cmbRepresentative.Enabled = false;
+                            }
+                            else
+                            {
+                                foreach (Representative Rep in Class.Representatives)
+                                {
+                                    form.cmbRepresentative.Items.Add(Rep.Name);
+                                }
+                                form.cmbRepresentative.SelectedIndex = 0;
+                            }
+                            form.Class = Class;
+                            form.Show();
+                        };
+                        PublicVariables.Container.Panel2.Controls.Add(button);
+
                         var options = Class.Jobs;
                         int i = 0;
                         foreach (Job job in options)
