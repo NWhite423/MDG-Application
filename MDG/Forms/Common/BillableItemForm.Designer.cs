@@ -62,7 +62,7 @@
             this.txtCount.Name = "txtCount";
             this.txtCount.Size = new System.Drawing.Size(100, 26);
             this.txtCount.TabIndex = 2;
-            this.txtCount.TextChanged += new System.EventHandler(this.txtCount_TextChanged);
+            //this.txtCount.TextChanged += new System.EventHandler(this.txtCount_TextChanged);
             // 
             // txtTitle
             // 
@@ -80,7 +80,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(100, 26);
             this.txtPrice.TabIndex = 5;
-            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
+            //this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
             // 
             // label2
             // 
@@ -101,7 +101,7 @@
             this.cmdSave.TabIndex = 6;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = true;
-            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
+            //this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
             // cmdCancel
             // 
@@ -111,7 +111,7 @@
             this.cmdCancel.TabIndex = 7;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
-            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            //this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // BillableItemForm
             // 

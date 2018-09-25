@@ -11,6 +11,9 @@ namespace MDG.Objects
 {
     class PublicVariables
     {
+        //Settings
+        public static List<SettingCategory> Settings = new List<SettingCategory> { };
+
         //String things
         public static string Seperator = @"\";
         public static string NewLine = "\n";
@@ -21,7 +24,7 @@ namespace MDG.Objects
         public static List<CustomerClass> CustomerList = new List<CustomerClass> { };
         public static SplitContainer Container = new SplitContainer();
         public static List<BillableItem> ItemList = new List<BillableItem> { };
-        public static CreateJob JobForm;
+        //public static CreateJob JobForm;
         public static CustomerPanelUC CustomerPanel;
 
         //Lists

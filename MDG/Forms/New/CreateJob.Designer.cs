@@ -309,7 +309,7 @@
             this.cmdAddItem.Tag = "Button";
             this.cmdAddItem.Text = "Add Item";
             this.cmdAddItem.UseVisualStyleBackColor = true;
-            this.cmdAddItem.Click += new System.EventHandler(this.button1_Click);
+            //this.cmdAddItem.Click += new System.EventHandler(this.button1_Click);
             // 
             // cmdCreate
             // 
@@ -321,7 +321,7 @@
             this.cmdCreate.Tag = "Button";
             this.cmdCreate.Text = "Create";
             this.cmdCreate.UseVisualStyleBackColor = true;
-            this.cmdCreate.Click += new System.EventHandler(this.cmdCreate_Click);
+            //this.cmdCreate.Click += new System.EventHandler(this.cmdCreate_Click);
             // 
             // cmdCancel
             // 
@@ -377,7 +377,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "Button";
             this.Text = "Create Job";
-            this.Load += new System.EventHandler(this.CreateJob_Load);
+            //this.Load += new System.EventHandler(this.CreateJob_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

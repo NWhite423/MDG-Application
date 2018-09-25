@@ -60,4 +60,18 @@ namespace MDG.Objects
         public string Entry { get; set; }
         public string Title { get; set; }
     }
+
+    public class SettingEntry
+    {
+        public string Name { get; set; }
+        public string Type { get; set; }
+        public string Value { get; set; }
+        public List<string[]> Options { get; set; }
+    }
+
+    public class SettingCategory
+    {
+        public string Name { get; set; }
+        public List<SettingEntry> Entries { get; set; }
+    }
 }

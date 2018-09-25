@@ -62,7 +62,7 @@
             this.lblRemove.Size = new System.Drawing.Size(59, 19);
             this.lblRemove.TabIndex = 2;
             this.lblRemove.Text = "Remove";
-            this.lblRemove.Click += new System.EventHandler(this.lblRemove_Click);
+            //this.lblRemove.Click += new System.EventHandler(this.lblRemove_Click);
             // 
             // LineItem
             // 

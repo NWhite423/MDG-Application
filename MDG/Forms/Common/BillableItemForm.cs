@@ -18,7 +18,7 @@ namespace MDG.Forms.Common
             InitializeComponent();
         }
 
-        private void cmdCancel_Click(object sender, EventArgs e)
+        /*private void cmdCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
@@ -51,6 +51,6 @@ namespace MDG.Forms.Common
             {
                 cmdSave.Enabled = false;
             }
-        }
+        }*/
     }
 }

@@ -21,7 +21,7 @@ namespace MDG.UserControls
             InitializeComponent();
         }
 
-        public CustomerClass Class { get; set; }
+        /*public CustomerClass Class { get; set; }
 
         private void cmdCreateJob_Click(object sender, EventArgs e)
         {
@@ -82,6 +82,6 @@ namespace MDG.UserControls
         private void lblTitle_DoubleClick(object sender, EventArgs e)
         {
             Functions.ShowCustomerInformation(Class);
-        }
+        }*/
     }
 }

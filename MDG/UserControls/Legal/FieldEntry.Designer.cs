@@ -82,7 +82,7 @@
             this.cmdDelete.TabIndex = 7;
             this.cmdDelete.Text = "Delete";
             this.cmdDelete.UseVisualStyleBackColor = true;
-            this.cmdDelete.Click += new System.EventHandler(this.cmdDelete_Click);
+            //this.cmdDelete.Click += new System.EventHandler(this.cmdDelete_Click);
             // 
             // cmdModify
             // 
@@ -92,7 +92,7 @@
             this.cmdModify.TabIndex = 6;
             this.cmdModify.Text = "Modify";
             this.cmdModify.UseVisualStyleBackColor = true;
-            this.cmdModify.Click += new System.EventHandler(this.cmdModify_Click);
+            //this.cmdModify.Click += new System.EventHandler(this.cmdModify_Click);
             // 
             // FieldEntry
             // 

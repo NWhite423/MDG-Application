@@ -23,7 +23,7 @@ namespace MDG.UserControls.Legal
         public int Index { get; set; }
         public NewContract masterForm { get; set; }
 
-        private void cmdModify_Click(object sender, EventArgs e)
+        /*private void cmdModify_Click(object sender, EventArgs e)
         {
             CreateEntry form = new CreateEntry();
             form.txtContent.Text = txtItem.Text;
@@ -54,6 +54,6 @@ namespace MDG.UserControls.Legal
                     Functions.UpdateTableItems(masterForm, 2);
                 }
             }
-        }
+        }*/
     }
 }

@@ -20,11 +20,11 @@ namespace MDG.UserControls
 
         public BillableItem ItemInfo;
 
-        private void lblRemove_Click(object sender, EventArgs e)
+        /*private void lblRemove_Click(object sender, EventArgs e)
         {
             Functions.ClearList();
             PublicVariables.ItemList.Remove(ItemInfo);
             Functions.PopulateList(); 
-        }
+        }*/
     }
 }

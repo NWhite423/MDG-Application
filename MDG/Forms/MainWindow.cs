@@ -1,20 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MDG.Forms.New;
 using MDG.UserControls;
 using MDG.Objects;
 using MDG.Forms.Legal;
-using System.Xml.Linq;
-using System.IO;
-using System.Reflection;
-using System.Diagnostics;
 
 namespace MDG.Forms
 {
@@ -33,6 +22,9 @@ namespace MDG.Forms
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            //Initialize settings
+            Functions.Settings.InitializeSettings();
+
             //Set the maximum size of the customer list (panel 1)
             SplitContainerMain.Panel2MinSize = Convert.ToInt32(Math.Floor(this.Width * .6));
 
@@ -41,8 +33,8 @@ namespace MDG.Forms
             PublicVariables.CustomerPanel = CustomerInfo;
 
             //Call Initial Functions
-            Functions.PopulateCustomerList();
-            Functions.PopulateCustomers();
+            Functions.General.InitializeCustomers();
+            Functions.UILists.UpdateCustomerList();
         }
 
         private void SplitContainerMain_Panel1_Resize(object sender, EventArgs e)

@@ -42,7 +42,7 @@
             this.lblTitle.Size = new System.Drawing.Size(194, 19);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Title";
-            this.lblTitle.DoubleClick += new System.EventHandler(this.lblTitle_DoubleClick);
+            //this.lblTitle.DoubleClick += new System.EventHandler(this.lblTitle_DoubleClick);
             // 
             // lblSeperator
             // 

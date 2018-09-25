@@ -162,7 +162,7 @@
             this.cmdSave.TabIndex = 10;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = true;
-            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
+            //this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
             // cmdCancel
             // 
@@ -172,7 +172,7 @@
             this.cmdCancel.TabIndex = 11;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
-            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            //this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // cmdAdd
             // 
@@ -182,7 +182,7 @@
             this.cmdAdd.TabIndex = 9;
             this.cmdAdd.Text = "Add";
             this.cmdAdd.UseVisualStyleBackColor = true;
-            this.cmdAdd.Click += new System.EventHandler(this.cmdAdd_Click);
+            //this.cmdAdd.Click += new System.EventHandler(this.cmdAdd_Click);
             // 
             // CreateCustomer
             // 
@@ -213,7 +213,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateCustomer";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.CreateCustomer_Load);
+            //this.Load += new System.EventHandler(this.CreateCustomer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

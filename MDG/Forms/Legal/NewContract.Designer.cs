@@ -261,7 +261,7 @@
             this.cmdSoWAdd.TabIndex = 9;
             this.cmdSoWAdd.Text = "Add";
             this.cmdSoWAdd.UseVisualStyleBackColor = true;
-            this.cmdSoWAdd.Click += new System.EventHandler(this.cmdSoWAdd_Click);
+            //this.cmdSoWAdd.Click += new System.EventHandler(this.cmdSoWAdd_Click);
             // 
             // cmdExpenseAdd
             // 
@@ -271,7 +271,7 @@
             this.cmdExpenseAdd.TabIndex = 10;
             this.cmdExpenseAdd.Text = "Add";
             this.cmdExpenseAdd.UseVisualStyleBackColor = true;
-            this.cmdExpenseAdd.Click += new System.EventHandler(this.cmdExpenseAdd_Click);
+            //this.cmdExpenseAdd.Click += new System.EventHandler(this.cmdExpenseAdd_Click);
             // 
             // label11
             // 
@@ -299,7 +299,7 @@
             this.cmdCancel.TabIndex = 12;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
-            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            //this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // cmdCreate
             // 
@@ -309,7 +309,7 @@
             this.cmdCreate.TabIndex = 11;
             this.cmdCreate.Text = "Create";
             this.cmdCreate.UseVisualStyleBackColor = true;
-            this.cmdCreate.Click += new System.EventHandler(this.cmdCreate_Click);
+            //this.cmdCreate.Click += new System.EventHandler(this.cmdCreate_Click);
             // 
             // label1
             // 
@@ -337,7 +337,7 @@
             this.cmbCustomers.Name = "cmbCustomers";
             this.cmbCustomers.Size = new System.Drawing.Size(403, 27);
             this.cmbCustomers.TabIndex = 30;
-            this.cmbCustomers.SelectedIndexChanged += new System.EventHandler(this.cmbCustomers_SelectedIndexChanged);
+            //this.cmbCustomers.SelectedIndexChanged += new System.EventHandler(this.cmbCustomers_SelectedIndexChanged);
             // 
             // cmbJobs
             // 
@@ -347,7 +347,7 @@
             this.cmbJobs.Name = "cmbJobs";
             this.cmbJobs.Size = new System.Drawing.Size(403, 27);
             this.cmbJobs.TabIndex = 31;
-            this.cmbJobs.SelectedIndexChanged += new System.EventHandler(this.cmbJobs_SelectedIndexChanged);
+            //this.cmbJobs.SelectedIndexChanged += new System.EventHandler(this.cmbJobs_SelectedIndexChanged);
             // 
             // NewContract
             // 
@@ -385,7 +385,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NewContract";
             this.Text = "Contractor Agreement";
-            this.Load += new System.EventHandler(this.CreateContractAgreement_Load);
+            //this.Load += new System.EventHandler(this.CreateContractAgreement_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

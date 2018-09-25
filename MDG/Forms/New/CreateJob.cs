@@ -23,7 +23,7 @@ namespace MDG.Forms.New
             InitializeComponent();
         }
 
-        public CustomerClass Class { get; set; }
+        /*public CustomerClass Class { get; set; }
         
         private void CreateJob_Load(object sender, EventArgs e)
         {
@@ -172,7 +172,7 @@ namespace MDG.Forms.New
                 Functions.AddJobtoCustomer(Class, JobEntry);
                 this.Close();
             }
-        }
+        }*/
 
         private void cmdCancel_Click(object sender, EventArgs e)
         {

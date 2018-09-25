@@ -22,7 +22,7 @@ namespace MDG.Forms.Legal
             InitializeComponent();
         }
         
-        public List<ScopeOfWorkEntry> SoWEntries { get; set; }
+        /*public List<ScopeOfWorkEntry> SoWEntries { get; set; }
         public List<ExspenseEntry> EexspenseEntries { get; set; }
         List<List<Job>> JobLists = new List<List<Job>> { };
         List<Address> Addresses = new List<Address> { };
@@ -326,6 +326,6 @@ namespace MDG.Forms.Legal
             CustomerCity.Text = address.City;
             CustomerState.Text = address.State;
             CustomerZip.Text = address.Zip;
-        }
+        }*/
     }
 }

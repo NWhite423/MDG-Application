@@ -22,7 +22,7 @@ namespace MDG.Forms.New
 
         }
 
-        private void cmdCancel_Click(object sender, EventArgs e)
+        /*private void cmdCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -165,6 +165,6 @@ namespace MDG.Forms.New
                     return;
                 }
             }
-        }
+        }*/
     }
 }
