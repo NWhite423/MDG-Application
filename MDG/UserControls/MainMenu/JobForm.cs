@@ -24,13 +24,13 @@ namespace MDG.UserControls.MainMenu
 
         private void cmdNew_Click(object sender, EventArgs e)
         {
-            Point position = new Point(cmdNew.Left, cmdNew.Height);
+            Point position = new Point(0, cmdNew.Height);
             cmsNew.Show(cmdNew, position);
         }
 
         private void cmdModify_Click(object sender, EventArgs e)
         {
-            Point position = new Point(cmdModify.Left, cmdModify.Height);
+            Point position = new Point(0, cmdModify.Height);
             cmsNew.Show(cmdModify, position);
         }
 

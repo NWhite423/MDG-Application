@@ -29,54 +29,35 @@
         private void InitializeComponent()
         {
             this.lblName = new System.Windows.Forms.Label();
-            this.lblCompanyName = new System.Windows.Forms.Label();
-            this.lblPhone = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.cmdModify = new System.Windows.Forms.Button();
             this.cmdDelete = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("SansSerif", 14F, System.Drawing.FontStyle.Bold);
             this.lblName.Location = new System.Drawing.Point(3, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(84, 24);
+            this.lblName.Size = new System.Drawing.Size(228, 24);
             this.lblName.TabIndex = 0;
-            this.lblName.Text = "lblName";
+            this.lblName.Text = "Name";
             // 
-            // lblCompanyName
+            // lblTitle
             // 
-            this.lblCompanyName.AutoSize = true;
-            this.lblCompanyName.Location = new System.Drawing.Point(3, 24);
-            this.lblCompanyName.Name = "lblCompanyName";
-            this.lblCompanyName.Size = new System.Drawing.Size(45, 19);
-            this.lblCompanyName.TabIndex = 1;
-            this.lblCompanyName.Text = "label2";
-            // 
-            // lblPhone
-            // 
-            this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(3, 43);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(45, 19);
-            this.lblPhone.TabIndex = 2;
-            this.lblPhone.Text = "label2";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(3, 62);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(45, 19);
-            this.lblEmail.TabIndex = 3;
-            this.lblEmail.Text = "label2";
-            this.lblEmail.Click += new System.EventHandler(this.lblEmail_click);
+            this.lblTitle.Font = new System.Drawing.Font("SansSerif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(4, 23);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(228, 19);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "Title";
             // 
             // cmdModify
             // 
-            this.cmdModify.Location = new System.Drawing.Point(3, 84);
+            this.cmdModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdModify.Font = new System.Drawing.Font("SansSerif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdModify.Location = new System.Drawing.Point(237, 9);
             this.cmdModify.Name = "cmdModify";
             this.cmdModify.Size = new System.Drawing.Size(75, 26);
             this.cmdModify.TabIndex = 4;
@@ -85,40 +66,48 @@
             // 
             // cmdDelete
             // 
-            this.cmdDelete.Location = new System.Drawing.Point(84, 84);
+            this.cmdDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdDelete.Font = new System.Drawing.Font("SansSerif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdDelete.Location = new System.Drawing.Point(318, 9);
             this.cmdDelete.Name = "cmdDelete";
             this.cmdDelete.Size = new System.Drawing.Size(75, 26);
             this.cmdDelete.TabIndex = 5;
             this.cmdDelete.Text = "Remove";
             this.cmdDelete.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Location = new System.Drawing.Point(0, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(400, 2);
+            this.label1.TabIndex = 6;
+            // 
             // RepresentativeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdDelete);
             this.Controls.Add(this.cmdModify);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblPhone);
-            this.Controls.Add(this.lblCompanyName);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblName);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimumSize = new System.Drawing.Size(387, 115);
             this.Name = "RepresentativeForm";
-            this.Size = new System.Drawing.Size(387, 115);
+            this.Size = new System.Drawing.Size(400, 44);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         public System.Windows.Forms.Label lblName;
-        public System.Windows.Forms.Label lblCompanyName;
-        public System.Windows.Forms.Label lblPhone;
-        public System.Windows.Forms.Label lblEmail;
+        public System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button cmdModify;
         private System.Windows.Forms.Button cmdDelete;
+        private System.Windows.Forms.Label label1;
     }
 }

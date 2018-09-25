@@ -53,20 +53,6 @@ namespace MDG.UserControls
             form.Class = Class;
             form.Show();
         }
-
-        private void lblCategory_TextChanged(object sender, EventArgs e)
-        {
-            if (Class.Category == "Individual")
-            {
-                cmdView.Enabled = false;
-                return;
-            }
-            if (Class.Category == "Company")
-            {
-                cmdView.Enabled = true;
-                return;
-            }
-        }
         
         private void cmdDelete_Click(object sender, EventArgs e)
         {
@@ -76,14 +62,6 @@ namespace MDG.UserControls
                 Functions.RemoveCustomer(Class);
                 Functions.PopulateCustomers();
             }
-        }
-
-        private void cmdRep_Click(object sender, EventArgs e)
-        {
-            //Point position = new Point(cmdNew.Left, cmdNew.Height);
-            //cmsNew.Show(cmdNew, position);
-            Point location = new Point(0, cmdView.Height);
-            cmsView.Show(cmdView, location);
         }
 
         private void openFileLocation_Click(object sender, EventArgs e)
@@ -99,6 +77,11 @@ namespace MDG.UserControls
         private void viewJobs_Click(object sender, EventArgs e)
         {
             Functions.ShowInformation(Class, 2);
+        }
+
+        private void lblTitle_DoubleClick(object sender, EventArgs e)
+        {
+            Functions.ShowCustomerInformation(Class);
         }
     }
 }

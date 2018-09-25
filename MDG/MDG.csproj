@@ -101,6 +101,12 @@
     <Compile Include="UserControls\CustomerInformation.Designer.cs">
       <DependentUpon>CustomerInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\MainMenu\CustomerPanelUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\MainMenu\CustomerPanelUC.Designer.cs">
+      <DependentUpon>CustomerPanelUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\Legal\FieldEntry.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CustomerInformation.resx">
       <DependentUpon>CustomerInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\MainMenu\CustomerPanelUC.resx">
+      <DependentUpon>CustomerPanelUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\Legal\FieldEntry.resx">
       <DependentUpon>FieldEntry.cs</DependentUpon>

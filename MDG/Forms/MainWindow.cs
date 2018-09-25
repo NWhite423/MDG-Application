@@ -33,8 +33,15 @@ namespace MDG.Forms
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-            Functions.PopulateCustomerList();
+            //Set the maximum size of the customer list (panel 1)
+            SplitContainerMain.Panel2MinSize = Convert.ToInt32(Math.Floor(this.Width * .6));
+
+            //Set public variables
             PublicVariables.Container = SplitContainerMain;
+            PublicVariables.CustomerPanel = CustomerInfo;
+
+            //Call Initial Functions
+            Functions.PopulateCustomerList();
             Functions.PopulateCustomers();
         }
 
@@ -58,8 +65,9 @@ namespace MDG.Forms
             Application.Exit();
         }
 
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        private void MainWindow_Resize(object sender, EventArgs e)
         {
+            SplitContainerMain.Panel2MinSize = Convert.ToInt32(Math.Floor(this.Width * .75));
         }
     }
 }

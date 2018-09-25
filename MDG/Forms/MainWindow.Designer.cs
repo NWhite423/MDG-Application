@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SplitContainerMain = new System.Windows.Forms.SplitContainer();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,29 +37,13 @@
             this.addendumAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.terminationAgreementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripNew = new System.Windows.Forms.MenuStrip();
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerMain)).BeginInit();
-            this.SplitContainerMain.SuspendLayout();
+            this.SplitContainerMain = new System.Windows.Forms.SplitContainer();
+            this.CustomerInfo = new MDG.UserControls.CustomerPanelUC();
             this.menuStripNew.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerMain)).BeginInit();
+            this.SplitContainerMain.Panel2.SuspendLayout();
+            this.SplitContainerMain.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // SplitContainerMain
-            // 
-            this.SplitContainerMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SplitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitContainerMain.Location = new System.Drawing.Point(0, 25);
-            this.SplitContainerMain.Name = "SplitContainerMain";
-            // 
-            // SplitContainerMain.Panel1
-            // 
-            this.SplitContainerMain.Panel1.AutoScroll = true;
-            this.SplitContainerMain.Panel1.Resize += new System.EventHandler(this.SplitContainerMain_Panel1_Resize);
-            // 
-            // SplitContainerMain.Panel2
-            // 
-            this.SplitContainerMain.Panel2.AutoScroll = true;
-            this.SplitContainerMain.Size = new System.Drawing.Size(1208, 720);
-            this.SplitContainerMain.SplitterDistance = 512;
-            this.SplitContainerMain.TabIndex = 1;
             // 
             // fileToolStripMenuItem
             // 
@@ -134,11 +117,45 @@
             this.menuStripNew.TabIndex = 0;
             this.menuStripNew.Text = "menuStrip1";
             // 
+            // SplitContainerMain
+            // 
+            this.SplitContainerMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SplitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitContainerMain.Location = new System.Drawing.Point(0, 25);
+            this.SplitContainerMain.Name = "SplitContainerMain";
+            // 
+            // SplitContainerMain.Panel1
+            // 
+            this.SplitContainerMain.Panel1.AutoScroll = true;
+            this.SplitContainerMain.Panel1.Resize += new System.EventHandler(this.SplitContainerMain_Panel1_Resize);
+            this.SplitContainerMain.Panel1MinSize = 200;
+            // 
+            // SplitContainerMain.Panel2
+            // 
+            this.SplitContainerMain.Panel2.AutoScroll = true;
+            this.SplitContainerMain.Panel2.Controls.Add(this.CustomerInfo);
+            this.SplitContainerMain.Size = new System.Drawing.Size(1208, 694);
+            this.SplitContainerMain.SplitterDistance = 350;
+            this.SplitContainerMain.SplitterWidth = 2;
+            this.SplitContainerMain.TabIndex = 1;
+            // 
+            // CustomerInfo
+            // 
+            this.CustomerInfo.AutoScroll = true;
+            this.CustomerInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CustomerInfo.Font = new System.Drawing.Font("SansSerif", 12F);
+            this.CustomerInfo.Location = new System.Drawing.Point(0, 0);
+            this.CustomerInfo.Margin = new System.Windows.Forms.Padding(4);
+            this.CustomerInfo.Name = "CustomerInfo";
+            this.CustomerInfo.Size = new System.Drawing.Size(854, 692);
+            this.CustomerInfo.TabIndex = 0;
+            this.CustomerInfo.Visible = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1208, 745);
+            this.ClientSize = new System.Drawing.Size(1208, 719);
             this.Controls.Add(this.SplitContainerMain);
             this.Controls.Add(this.menuStripNew);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -147,17 +164,18 @@
             this.Name = "MainWindow";
             this.Text = "Melbourne Design Group";
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerMain)).EndInit();
-            this.SplitContainerMain.ResumeLayout(false);
+            this.Resize += new System.EventHandler(this.MainWindow_Resize);
             this.menuStripNew.ResumeLayout(false);
             this.menuStripNew.PerformLayout();
+            this.SplitContainerMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerMain)).EndInit();
+            this.SplitContainerMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        public System.Windows.Forms.SplitContainer SplitContainerMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customerToolStripMenuItem;
@@ -167,5 +185,7 @@
         private System.Windows.Forms.ToolStripMenuItem terminationAgreementToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStripNew;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        public System.Windows.Forms.SplitContainer SplitContainerMain;
+        private UserControls.CustomerPanelUC CustomerInfo;
     }
 }

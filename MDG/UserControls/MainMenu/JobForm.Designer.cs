@@ -30,10 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblCustomer = new System.Windows.Forms.Label();
             this.lblJobNumber = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblAddress = new System.Windows.Forms.Label();
             this.cmdNew = new System.Windows.Forms.Button();
             this.cmsNew = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmdNewContract = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,59 +42,38 @@
             this.cmdModifyContract = new System.Windows.Forms.ToolStripMenuItem();
             this.cmdModifyAddendum = new System.Windows.Forms.ToolStripMenuItem();
             this.cmdModifyTermination = new System.Windows.Forms.ToolStripMenuItem();
+            this.Seperator = new System.Windows.Forms.Label();
             this.cmsNew.SuspendLayout();
             this.cmsModify.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTitle.Font = new System.Drawing.Font("SansSerif", 12F, System.Drawing.FontStyle.Bold);
             this.lblTitle.Location = new System.Drawing.Point(3, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(101, 24);
+            this.lblTitle.Size = new System.Drawing.Size(228, 24);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Job Name";
             // 
-            // lblCustomer
-            // 
-            this.lblCustomer.AutoSize = true;
-            this.lblCustomer.Location = new System.Drawing.Point(3, 43);
-            this.lblCustomer.Name = "lblCustomer";
-            this.lblCustomer.Size = new System.Drawing.Size(68, 19);
-            this.lblCustomer.TabIndex = 1;
-            this.lblCustomer.Text = "Customer";
-            // 
             // lblJobNumber
             // 
-            this.lblJobNumber.AutoSize = true;
-            this.lblJobNumber.Location = new System.Drawing.Point(3, 24);
+            this.lblJobNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblJobNumber.Font = new System.Drawing.Font("SansSerif", 10F);
+            this.lblJobNumber.Location = new System.Drawing.Point(3, 19);
             this.lblJobNumber.Name = "lblJobNumber";
-            this.lblJobNumber.Size = new System.Drawing.Size(85, 19);
+            this.lblJobNumber.Size = new System.Drawing.Size(228, 19);
             this.lblJobNumber.TabIndex = 2;
             this.lblJobNumber.Text = "Job Number";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 62);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Address:";
-            // 
-            // lblAddress
-            // 
-            this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(26, 81);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(86, 57);
-            this.lblAddress.TabIndex = 4;
-            this.lblAddress.Text = "Line 1\r\nLine 2\r\nCity, ST ZIP";
-            // 
             // cmdNew
             // 
-            this.cmdNew.Location = new System.Drawing.Point(3, 141);
+            this.cmdNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdNew.Font = new System.Drawing.Font("SansSerif", 11F);
+            this.cmdNew.Location = new System.Drawing.Point(237, 7);
             this.cmdNew.Name = "cmdNew";
             this.cmdNew.Size = new System.Drawing.Size(100, 26);
             this.cmdNew.TabIndex = 5;
@@ -112,30 +88,32 @@
             this.cmdNewAddendum,
             this.cmdNewTermination});
             this.cmsNew.Name = "cmsNew";
-            this.cmsNew.Size = new System.Drawing.Size(181, 92);
+            this.cmsNew.Size = new System.Drawing.Size(166, 70);
             // 
             // cmdNewContract
             // 
             this.cmdNewContract.Name = "cmdNewContract";
-            this.cmdNewContract.Size = new System.Drawing.Size(180, 22);
+            this.cmdNewContract.Size = new System.Drawing.Size(165, 22);
             this.cmdNewContract.Text = "New Contract";
             this.cmdNewContract.Click += new System.EventHandler(this.cmdNewContract_Click);
             // 
             // cmdNewAddendum
             // 
             this.cmdNewAddendum.Name = "cmdNewAddendum";
-            this.cmdNewAddendum.Size = new System.Drawing.Size(180, 22);
+            this.cmdNewAddendum.Size = new System.Drawing.Size(165, 22);
             this.cmdNewAddendum.Text = "New Addendum";
             // 
             // cmdNewTermination
             // 
             this.cmdNewTermination.Name = "cmdNewTermination";
-            this.cmdNewTermination.Size = new System.Drawing.Size(180, 22);
+            this.cmdNewTermination.Size = new System.Drawing.Size(165, 22);
             this.cmdNewTermination.Text = "New Termination";
             // 
             // cmdModify
             // 
-            this.cmdModify.Location = new System.Drawing.Point(109, 141);
+            this.cmdModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdModify.Font = new System.Drawing.Font("SansSerif", 11F);
+            this.cmdModify.Location = new System.Drawing.Point(343, 7);
             this.cmdModify.Name = "cmdModify";
             this.cmdModify.Size = new System.Drawing.Size(100, 26);
             this.cmdModify.TabIndex = 7;
@@ -177,30 +155,36 @@
             this.cmdModifyTermination.Size = new System.Drawing.Size(179, 22);
             this.cmdModifyTermination.Text = "Modify Termination";
             // 
+            // Seperator
+            // 
+            this.Seperator.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Seperator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Seperator.Location = new System.Drawing.Point(0, 40);
+            this.Seperator.Name = "Seperator";
+            this.Seperator.Size = new System.Drawing.Size(450, 2);
+            this.Seperator.TabIndex = 8;
+            // 
             // JobForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Seperator);
             this.Controls.Add(this.cmdModify);
             this.Controls.Add(this.cmdNew);
-            this.Controls.Add(this.lblAddress);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblJobNumber);
-            this.Controls.Add(this.lblCustomer);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "JobForm";
-            this.Size = new System.Drawing.Size(484, 170);
+            this.Size = new System.Drawing.Size(450, 42);
             this.cmsNew.ResumeLayout(false);
             this.cmsModify.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button cmdNew;
         private System.Windows.Forms.ContextMenuStrip cmsNew;
         private System.Windows.Forms.ToolStripMenuItem cmdNewContract;
@@ -213,8 +197,7 @@
         private System.Windows.Forms.ToolStripMenuItem cmdModifyAddendum;
         private System.Windows.Forms.ToolStripMenuItem cmdModifyTermination;
         public System.Windows.Forms.Label lblTitle;
-        public System.Windows.Forms.Label lblCustomer;
         public System.Windows.Forms.Label lblJobNumber;
-        public System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.Label Seperator;
     }
 }

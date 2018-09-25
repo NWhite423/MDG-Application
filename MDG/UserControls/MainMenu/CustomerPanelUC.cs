@@ -7,14 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MDG.Objects;
-using System.Threading;
 
-namespace MDG.UserControls.MainMenu
+namespace MDG.UserControls
 {
-    public partial class RepresentativeForm : UserControl
+    public partial class CustomerPanelUC : UserControl
     {
-        public RepresentativeForm()
+        public CustomerPanelUC()
         {
             InitializeComponent();
         }

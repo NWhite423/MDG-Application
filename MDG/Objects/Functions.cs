@@ -298,7 +298,6 @@ namespace MDG.Objects
                 if (Customer.Category == "Individual")
                 {
                     Card.lblTitle.Text = "[I] " + Customer.Name;
-                    Card.cmsView.Items.Remove(Card.cmsView.Items.Find("viewRepresentatives", false).First());
                 }
                 if (Customer.Category == "Company")
                 {
@@ -373,9 +372,7 @@ namespace MDG.Objects
                         {
                             RepresentativeForm RepForm = new RepresentativeForm();
                             RepForm.lblName.Text = Rep.Name;
-                            RepForm.lblPhone.Text = Rep.Phone;
-                            RepForm.lblEmail.Text = Rep.Email;
-                            RepForm.lblCompanyName.Text = Class.Name;
+                            RepForm.lblTitle.Text = Rep.Phone;
 
                             RepForm.Location = new Point(0, ((RepForm.Height + 1) * i) + 45);
                             RepForm.Width = RepForm.lblName.Width + 8;
@@ -429,22 +426,7 @@ namespace MDG.Objects
                         {
                             JobForm jobForm = new JobForm();
                             jobForm.lblTitle.Text = job.Name;
-                            if (Class.Category == "Company")
-                            {
-                                jobForm.lblCustomer.Text = Class.Name + " (" + job.Representative.Name + ")";
-                            } else
-                            {
-                                jobForm.lblCustomer.Text = Class.Name;
-                            }
                             jobForm.lblJobNumber.Text = job.JobNumber;
-                            if (job.Address.AddressLine2 == "")
-                            {
-                                jobForm.lblAddress.Text = job.Address.AddressLine1 + "\n" + job.Address.City + ", " + job.Address.State + " " + job.Address.Zip;
-                            }
-                            else
-                            {
-                                jobForm.lblAddress.Text = job.Address.AddressLine1 + "\n" + job.Address.AddressLine2 + "\n" + job.Address.City + ", " + job.Address.State + " " + job.Address.Zip;
-                            }
                             jobForm.Class = Class;
                             jobForm.CurrentJob = job;
                             jobForm.Location = new Point(0, ((jobForm.Height + 1) * i) + 45);
@@ -501,6 +483,101 @@ namespace MDG.Objects
                         }
                         return;
                     }
+            }
+        }
+
+        //Customer click
+        public static string ConvertAddressString(string[] addressValue, bool multiLine = false)
+        {
+            string value;
+            string NewLine = PublicVariables.NewLine;
+            string Space = PublicVariables.Space;
+            string Comma = PublicVariables.Comma;
+
+
+            if (multiLine)
+            {
+                if (addressValue[1] == "")
+                {
+                    value = addressValue[0] + NewLine + addressValue[2] + Comma + addressValue[3] + Space + addressValue[4];
+                }
+                else
+                {
+                    value = addressValue[0] + NewLine + addressValue[1] + NewLine + addressValue[2] + Comma + addressValue[3] + Space + addressValue[4];
+                }
+            }
+            if (addressValue[1] == "")
+            {
+                value = addressValue[0] + Comma + addressValue[2] + Comma + addressValue[3] + Space + addressValue[4];
+            }
+            else
+            {
+                value = addressValue[0] + Comma + addressValue[1] + Comma + addressValue[2] + Comma + addressValue[3] + Space + addressValue[4];
+            }
+            return value;
+        }
+
+        public static string ConvertAddressObject(Address address, bool multiLine = false)
+        {
+            string value;
+            string NewLine = PublicVariables.NewLine;
+            string Space = PublicVariables.Space;
+            string Comma = PublicVariables.Comma;
+
+
+            if (multiLine)
+            {
+                if (address.AddressLine2 == "")
+                {
+                    value = (address.AddressLine1 + NewLine + address.City + Comma + address.State + Space + address.Zip);
+                }
+                else
+                {
+                    value = (address.AddressLine1 + NewLine + address.AddressLine2 + NewLine + address.City + Comma + address.State + Space + address.Zip);
+                }
+            }
+            if (address.AddressLine2 == "")
+            {
+                value = (address.AddressLine1 + Comma + address.City + Comma + address.State + Space + address.Zip);
+            }
+            else
+            {
+                value = (address.AddressLine1 + Comma + address.AddressLine2 + Comma + address.City + Comma + address.State + Space + address.Zip);
+            }
+            return value;
+        }
+
+        public static void ShowCustomerInformation(CustomerClass Customer)
+        {
+            CustomerPanelUC panel = PublicVariables.CustomerPanel;
+            panel.CustomerName.Text = Customer.Name;
+            panel.Address.Text = ConvertAddressObject(Customer.Address);
+            panel.Category.Text = Customer.Category;
+            panel.CustomerDate.Text = "Customer Sinse: " + Directory.GetLastWriteTime(Customer.Path);
+            if (Customer.Category == "Individual")
+            {
+                panel.Representatives.Text = "Representatives: N/A";
+            }
+            else
+            {
+                panel.Representatives.Text = "Representatives: " + Customer.Representatives.Count();
+            }
+            int i = 0;
+            foreach (Representative representative in Customer.Representatives)
+            {
+                RepresentativeForm RepForm = new RepresentativeForm();
+                RepForm.lblName.Text = representative.Name;
+                RepForm.lblTitle.Text = representative.Phone;
+
+                RepForm.Location = new Point(0, (RepForm.Height + 1) * i);
+                RepForm.Width = panel.PnlReps.Width;
+                panel.PnlReps.Controls.Add(RepForm);
+                i++;
+            }
+
+            if (!panel.Visible)
+            {
+                panel.Visible = true;
             }
         }
     }
