@@ -37,6 +37,8 @@
             this.cmdSaveExit = new System.Windows.Forms.Button();
             this.cmdSaveClear = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -51,7 +53,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 48);
+            this.label2.Location = new System.Drawing.Point(11, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(104, 19);
             this.label2.TabIndex = 1;
@@ -60,7 +62,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(61, 79);
+            this.label3.Location = new System.Drawing.Point(61, 111);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 19);
             this.label3.TabIndex = 2;
@@ -71,56 +73,75 @@
             this.txtName.Location = new System.Drawing.Point(121, 12);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(276, 26);
-            this.txtName.TabIndex = 3;
+            this.txtName.TabIndex = 1;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(121, 44);
+            this.txtPhone.Location = new System.Drawing.Point(121, 76);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(276, 26);
-            this.txtPhone.TabIndex = 4;
+            this.txtPhone.TabIndex = 3;
             // 
             // TxtEmail
             // 
-            this.TxtEmail.Location = new System.Drawing.Point(121, 76);
+            this.TxtEmail.Location = new System.Drawing.Point(121, 108);
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(276, 26);
-            this.TxtEmail.TabIndex = 5;
+            this.TxtEmail.TabIndex = 4;
             // 
             // cmdSaveExit
             // 
-            this.cmdSaveExit.Location = new System.Drawing.Point(12, 108);
+            this.cmdSaveExit.Location = new System.Drawing.Point(12, 140);
             this.cmdSaveExit.Name = "cmdSaveExit";
             this.cmdSaveExit.Size = new System.Drawing.Size(75, 26);
-            this.cmdSaveExit.TabIndex = 6;
+            this.cmdSaveExit.TabIndex = 5;
             this.cmdSaveExit.Text = "Save";
             this.cmdSaveExit.UseVisualStyleBackColor = true;
             this.cmdSaveExit.Click += new System.EventHandler(this.cmdSaveExit_Click);
             // 
             // cmdSaveClear
             // 
-            this.cmdSaveClear.Location = new System.Drawing.Point(93, 108);
+            this.cmdSaveClear.Location = new System.Drawing.Point(93, 140);
             this.cmdSaveClear.Name = "cmdSaveClear";
             this.cmdSaveClear.Size = new System.Drawing.Size(75, 26);
-            this.cmdSaveClear.TabIndex = 7;
+            this.cmdSaveClear.TabIndex = 6;
             this.cmdSaveClear.Text = "New";
             this.cmdSaveClear.UseVisualStyleBackColor = true;
             this.cmdSaveClear.Click += new System.EventHandler(this.cmdSaveClear_Click);
             // 
             // cmdCancel
             // 
-            this.cmdCancel.Location = new System.Drawing.Point(322, 108);
+            this.cmdCancel.Location = new System.Drawing.Point(322, 140);
             this.cmdCancel.Name = "cmdCancel";
             this.cmdCancel.Size = new System.Drawing.Size(75, 26);
-            this.cmdCancel.TabIndex = 8;
+            this.cmdCancel.TabIndex = 7;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
+            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            // 
+            // txtTitle
+            // 
+            this.txtTitle.Location = new System.Drawing.Point(121, 44);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.Size = new System.Drawing.Size(276, 26);
+            this.txtTitle.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(78, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 19);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Title:";
             // 
             // NewRepresentative
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 141);
+            this.ClientSize = new System.Drawing.Size(409, 174);
+            this.Controls.Add(this.txtTitle);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdSaveClear);
             this.Controls.Add(this.cmdSaveExit);
@@ -138,7 +159,9 @@
             this.Name = "NewRepresentative";
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NewRepresentative";
+            this.Load += new System.EventHandler(this.NewRepresentative_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +178,7 @@
         public System.Windows.Forms.TextBox txtName;
         public System.Windows.Forms.TextBox txtPhone;
         public System.Windows.Forms.TextBox TxtEmail;
+        public System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.Label label4;
     }
 }

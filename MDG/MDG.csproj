@@ -84,6 +84,7 @@
     <Compile Include="Forms\New\CreateJob.Designer.cs">
       <DependentUpon>CreateJob.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Objects\Classes.cs" />
     <Compile Include="Objects\Functions.cs" />
     <Compile Include="Objects\PublicVariables.cs" />

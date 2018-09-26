@@ -63,6 +63,7 @@
             this.cmdModify.TabIndex = 4;
             this.cmdModify.Text = "Modify";
             this.cmdModify.UseVisualStyleBackColor = true;
+            this.cmdModify.Click += new System.EventHandler(this.cmdModify_Click);
             // 
             // cmdDelete
             // 

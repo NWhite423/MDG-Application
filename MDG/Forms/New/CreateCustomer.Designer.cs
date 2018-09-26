@@ -39,10 +39,10 @@
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtState = new System.Windows.Forms.TextBox();
             this.txtZip = new System.Windows.Forms.TextBox();
-            this.lbReps = new System.Windows.Forms.ListBox();
             this.cmdSave = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
             this.cmdAdd = new System.Windows.Forms.Button();
+            this.pnlReps = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -73,6 +73,7 @@
             this.rbCompany.Name = "rbCompany";
             this.rbCompany.Size = new System.Drawing.Size(86, 23);
             this.rbCompany.TabIndex = 3;
+            this.rbCompany.TabStop = true;
             this.rbCompany.Text = "Company";
             this.rbCompany.UseVisualStyleBackColor = true;
             // 
@@ -97,7 +98,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 91);
+            this.label2.Location = new System.Drawing.Point(8, 91);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 19);
             this.label2.TabIndex = 5;
@@ -105,25 +106,25 @@
             // 
             // txtAddress1
             // 
-            this.txtAddress1.Location = new System.Drawing.Point(16, 113);
+            this.txtAddress1.Location = new System.Drawing.Point(12, 113);
             this.txtAddress1.Name = "txtAddress1";
-            this.txtAddress1.Size = new System.Drawing.Size(356, 26);
+            this.txtAddress1.Size = new System.Drawing.Size(360, 26);
             this.txtAddress1.TabIndex = 4;
             this.txtAddress1.Tag = "Address Line 1";
             // 
             // txtAddress2
             // 
-            this.txtAddress2.Location = new System.Drawing.Point(16, 145);
+            this.txtAddress2.Location = new System.Drawing.Point(12, 145);
             this.txtAddress2.Name = "txtAddress2";
-            this.txtAddress2.Size = new System.Drawing.Size(356, 26);
+            this.txtAddress2.Size = new System.Drawing.Size(360, 26);
             this.txtAddress2.TabIndex = 5;
             this.txtAddress2.Tag = "Address Line 2";
             // 
             // txtCity
             // 
-            this.txtCity.Location = new System.Drawing.Point(16, 177);
+            this.txtCity.Location = new System.Drawing.Point(12, 177);
             this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(166, 26);
+            this.txtCity.Size = new System.Drawing.Size(170, 26);
             this.txtCity.TabIndex = 6;
             this.txtCity.Tag = "Addres City";
             // 
@@ -143,17 +144,6 @@
             this.txtZip.TabIndex = 8;
             this.txtZip.Tag = "Address Zip Code";
             // 
-            // lbReps
-            // 
-            this.lbReps.FormattingEnabled = true;
-            this.lbReps.ItemHeight = 19;
-            this.lbReps.Location = new System.Drawing.Point(12, 209);
-            this.lbReps.Name = "lbReps";
-            this.lbReps.Size = new System.Drawing.Size(360, 175);
-            this.lbReps.TabIndex = 11;
-            this.lbReps.TabStop = false;
-            this.lbReps.Tag = "Representatives";
-            // 
             // cmdSave
             // 
             this.cmdSave.Location = new System.Drawing.Point(12, 423);
@@ -162,7 +152,7 @@
             this.cmdSave.TabIndex = 10;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = true;
-            //this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
+            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
             // cmdCancel
             // 
@@ -172,7 +162,7 @@
             this.cmdCancel.TabIndex = 11;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
-            //this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
+            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // cmdAdd
             // 
@@ -182,17 +172,24 @@
             this.cmdAdd.TabIndex = 9;
             this.cmdAdd.Text = "Add";
             this.cmdAdd.UseVisualStyleBackColor = true;
-            //this.cmdAdd.Click += new System.EventHandler(this.cmdAdd_Click);
+            this.cmdAdd.Click += new System.EventHandler(this.cmdAdd_Click);
+            // 
+            // pnlReps
+            // 
+            this.pnlReps.Location = new System.Drawing.Point(12, 209);
+            this.pnlReps.Name = "pnlReps";
+            this.pnlReps.Size = new System.Drawing.Size(360, 176);
+            this.pnlReps.TabIndex = 12;
             // 
             // CreateCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 461);
+            this.Controls.Add(this.pnlReps);
             this.Controls.Add(this.cmdAdd);
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.cmdSave);
-            this.Controls.Add(this.lbReps);
             this.Controls.Add(this.txtZip);
             this.Controls.Add(this.txtState);
             this.Controls.Add(this.txtCity);
@@ -212,8 +209,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateCustomer";
-            this.TopMost = true;
-            //this.Load += new System.EventHandler(this.CreateCustomer_Load);
+            this.Load += new System.EventHandler(this.CreateCustomer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,9 +228,9 @@
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtState;
         private System.Windows.Forms.TextBox txtZip;
-        private System.Windows.Forms.ListBox lbReps;
         private System.Windows.Forms.Button cmdSave;
         private System.Windows.Forms.Button cmdCancel;
         private System.Windows.Forms.Button cmdAdd;
+        private System.Windows.Forms.Panel pnlReps;
     }
 }
